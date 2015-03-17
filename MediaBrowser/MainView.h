@@ -48,11 +48,17 @@ namespace MediaBrowser {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MainView";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// MainView
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1535, 854);
+			this->Name = L"MainView";
+			this->Text = L"MainView";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
