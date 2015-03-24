@@ -57,7 +57,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>main</EntryPointSymbol>
+      <EntryPointSymbol>Main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -68,6 +68,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>Main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -78,17 +80,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Catalog.cpp" />
     <ClCompile Include="MainView.cpp" />
+    <ClCompile Include="MediaFile.cpp" />
+    <ClCompile Include="MovieCatalog.cpp" />
+    <ClCompile Include="MovieFile.cpp" />
+    <ClCompile Include="MusicCatalog.cpp" />
+    <ClCompile Include="MusicFile.cpp" />
+    <ClCompile Include="PictureCatalog.cpp" />
+    <ClCompile Include="PictureFile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Catalog.h" />
     <ClInclude Include="MainView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MediaFile.h" />
+    <ClInclude Include="MovieCatalog.h" />
+    <ClInclude Include="MovieFile.h" />
+    <ClInclude Include="MusicCatalog.h" />
+    <ClInclude Include="MusicFile.h" />
+    <ClInclude Include="PictureCatalog.h" />
+    <ClInclude Include="PictureFile.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

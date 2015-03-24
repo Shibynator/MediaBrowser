@@ -13,15 +13,83 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Quelldateien\Medien">
+      <UniqueIdentifier>{6e3b8c15-2a9f-4d85-b1b0-1eb4b1181ae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Katalog">
+      <UniqueIdentifier>{33718717-c3be-48ed-a3da-faa84b15f78f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Medien">
+      <UniqueIdentifier>{36d6a5fa-90c0-485c-8ca4-5a3e7e2bd25f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Katalog">
+      <UniqueIdentifier>{081767a4-6e02-46b2-8e74-bf00005ace1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainView.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaFile.cpp">
+      <Filter>Quelldateien\Medien</Filter>
+    </ClCompile>
+    <ClCompile Include="MovieFile.cpp">
+      <Filter>Quelldateien\Medien</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicFile.cpp">
+      <Filter>Quelldateien\Medien</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureFile.cpp">
+      <Filter>Quelldateien\Medien</Filter>
+    </ClCompile>
+    <ClCompile Include="Catalog.cpp">
+      <Filter>Quelldateien\Katalog</Filter>
+    </ClCompile>
+    <ClCompile Include="MovieCatalog.cpp">
+      <Filter>Quelldateien\Katalog</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicCatalog.cpp">
+      <Filter>Quelldateien\Katalog</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureCatalog.cpp">
+      <Filter>Quelldateien\Katalog</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainView.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="MediaFile.h">
+      <Filter>Headerdateien\Medien</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieFile.h">
+      <Filter>Headerdateien\Medien</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicFile.h">
+      <Filter>Headerdateien\Medien</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureFile.h">
+      <Filter>Headerdateien\Medien</Filter>
+    </ClInclude>
+    <ClInclude Include="Catalog.h">
+      <Filter>Headerdateien\Katalog</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieCatalog.h">
+      <Filter>Headerdateien\Katalog</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicCatalog.h">
+      <Filter>Headerdateien\Katalog</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureCatalog.h">
+      <Filter>Headerdateien\Katalog</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainView.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
