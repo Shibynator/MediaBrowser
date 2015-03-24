@@ -12,7 +12,7 @@ MovieFile::MovieFile(String ^ tit, String ^ res, String ^ dur, String ^ frm)
 
 }
 
-MovieFile::MovieFile(String ^ pat, DateTime dcre, DateTime dmod, String ^ tit, String ^ res, String ^ dur, String ^ frm)
+MovieFile::MovieFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ res, String ^ dur, String ^ frm)
 	: MediaFile(pat, dcre, dmod), title(tit), resolution(res), duration(dur), framerate(frm)
 {
 

@@ -5,7 +5,7 @@
 using namespace System;
 using namespace System::Data;
 
-ref class Catalog : DataSet
+ref class Catalog // : DataSet
 {
 private:
 	DataTable mediaTable;

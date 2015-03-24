@@ -12,7 +12,7 @@ PictureFile::PictureFile(String ^ tit, String ^ res, String ^ fst, String ^ exp,
 
 }
 
-PictureFile::PictureFile(String ^ pat, DateTime dcre, DateTime dmod, String ^ tit, String ^ res, String ^ fst, String ^ exp, String ^ is)
+PictureFile::PictureFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ res, String ^ fst, String ^ exp, String ^ is)
 	: MediaFile(pat, dcre, dmod), title(tit), resolution(res), fstop(fst), exposuretime(exp), iso(is)
 {
 

@@ -22,11 +22,6 @@ void MusicCatalog::sort()
 {
 }
 
-void MusicCatalog::add(MusicFile ^ musicFile)
-{
-	musicList.Add(musicFile);
-}
-
 void MusicCatalog::remove()
 {
 }
@@ -37,4 +32,14 @@ void MusicCatalog::save()
 
 void MusicCatalog::load()
 {
+}
+
+void MusicCatalog::add(MusicFile ^ musicFile)
+{
+	musicList->Add(musicFile);
+}
+
+LISTMUSIC ^ MusicCatalog::getList()
+{
+	return musicList;
 }

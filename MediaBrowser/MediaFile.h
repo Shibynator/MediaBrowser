@@ -10,12 +10,12 @@ ref class MediaFile
 {
 private:
 	String ^ path;
-	DateTime datecreation;
-	DateTime datemodified;
+	String ^ datecreation;
+	String ^ datemodified;
 
 public:
 	MediaFile();
-	MediaFile(String ^ pat, DateTime dcre, DateTime dmod);
+	MediaFile(String ^ pat, String ^ dcre, String ^ dmod);
 	virtual ~MediaFile();
 
 	virtual void play();

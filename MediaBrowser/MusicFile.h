@@ -17,7 +17,7 @@ private:
 public:
 	MusicFile();
 	MusicFile(String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur);
-	MusicFile(String ^ pat, DateTime dcre, DateTime dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur);
+	MusicFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur);
 	virtual ~MusicFile();
 
 	virtual void play() override;

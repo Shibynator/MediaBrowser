@@ -11,8 +11,8 @@ typedef List<MusicFile ^> LISTMUSIC;
 ref class MusicCatalog : public Catalog
 {
 private:
-	LISTMUSIC musicList;
-
+	LISTMUSIC ^ musicList = gcnew LISTMUSIC();
+	
 public:
 	MusicCatalog();
 	virtual ~MusicCatalog();
@@ -25,5 +25,6 @@ public:
 	virtual void load() override;
 
 	void add(MusicFile ^ musicFile);
+	LISTMUSIC ^ getList();
 };
 

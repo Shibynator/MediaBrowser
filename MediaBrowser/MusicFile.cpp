@@ -18,7 +18,7 @@ MusicFile::MusicFile(String ^ tit, String ^ art, String ^ aart, String ^ alb, St
 
 }
 
-MusicFile::MusicFile(String ^ pat, DateTime dcre, DateTime dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur)
+MusicFile::MusicFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur)
 	: MediaFile(pat, dcre, dmod)
 {
 	

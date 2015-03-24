@@ -16,7 +16,7 @@ private:
 public:
 	PictureFile();
 	PictureFile(String ^ tit, String ^ res, String ^ fst, String ^ exp, String ^ is);
-	PictureFile(String ^ pat, DateTime dcre, DateTime dmod, String ^ tit, String ^ res, String ^ fst, String ^ exp, String ^ is);
+	PictureFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ res, String ^ fst, String ^ exp, String ^ is);
 	virtual ~PictureFile();
 
 	virtual void play() override;

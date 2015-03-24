@@ -11,7 +11,7 @@ typedef List<MovieFile ^> LISTMOVIE;
 ref class MovieCatalog : public Catalog
 {
 private:
-	LISTMOVIE movieList;
+	LISTMOVIE ^ movieList = gcnew LISTMOVIE();
 
 public:
 	MovieCatalog();
@@ -25,5 +25,6 @@ public:
 	virtual void load() override;
 
 	void add(MovieFile ^ movieFile);
+	LISTMOVIE ^ getList();
 };
 
