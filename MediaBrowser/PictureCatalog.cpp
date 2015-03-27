@@ -35,10 +35,4 @@ void PictureCatalog::load()
 
 void PictureCatalog::add(PictureFile ^ pictureFile)
 {
-	pictureList->Add(pictureFile);
-}
-
-LISTPICTURE ^ PictureCatalog::getList()
-{
-	return pictureList;
 }

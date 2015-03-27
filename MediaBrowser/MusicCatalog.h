@@ -6,12 +6,8 @@
 
 using namespace System::Collections::Generic;
 
-typedef List<MusicFile ^> LISTMUSIC;
-
 ref class MusicCatalog : public Catalog
 {
-private:
-	LISTMUSIC ^ musicList = gcnew LISTMUSIC();
 	
 public:
 	MusicCatalog();
@@ -25,6 +21,5 @@ public:
 	virtual void load() override;
 
 	void add(MusicFile ^ musicFile);
-	LISTMUSIC ^ getList();
 };
 

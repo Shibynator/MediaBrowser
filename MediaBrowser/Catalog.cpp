@@ -5,7 +5,6 @@ Catalog::Catalog()
 {
 }
 
-
 Catalog::~Catalog()
 {
 }

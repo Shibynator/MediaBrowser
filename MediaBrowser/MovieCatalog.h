@@ -6,12 +6,8 @@
 
 using namespace System::Collections::Generic;
 
-typedef List<MovieFile ^> LISTMOVIE;
-
 ref class MovieCatalog : public Catalog
 {
-private:
-	LISTMOVIE ^ movieList = gcnew LISTMOVIE();
 
 public:
 	MovieCatalog();
@@ -25,6 +21,5 @@ public:
 	virtual void load() override;
 
 	void add(MovieFile ^ movieFile);
-	LISTMOVIE ^ getList();
 };
 

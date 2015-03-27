@@ -34,10 +34,4 @@ void MovieCatalog::load()
 
 void MovieCatalog::add(MovieFile ^ movieFile)
 {
-	movieList->Add(movieFile);
-}
-
-LISTMOVIE ^ MovieCatalog::getList()
-{
-	return movieList;
 }
