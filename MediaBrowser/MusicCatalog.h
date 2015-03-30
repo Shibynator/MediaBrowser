@@ -20,6 +20,5 @@ public:
 	virtual void save() override;
 	virtual void load() override;
 
-	void add(MusicFile ^ musicFile);
 };
 

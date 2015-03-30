@@ -52,14 +52,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;ID3LIB_LINKOPTION=3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Daten\Dokumente\BFH\Semester 8\CPP in Embedded Systems\Repo\id3lib-3.8.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Id3Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>id3lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>Main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>C:\Daten\Dokumente\BFH\Semester 8\CPP in Embedded Systems\Repo\id3lib-3.8.3binaries\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Id3Library;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,17 +83,38 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Catalog.cpp" />
+    <ClCompile Include="Keys\FileKeys.cpp" />
     <ClCompile Include="MainView.cpp" />
     <ClCompile Include="MediaFile.cpp" />
     <ClCompile Include="MovieCatalog.cpp" />
     <ClCompile Include="MovieFile.cpp" />
     <ClCompile Include="MusicCatalog.cpp" />
     <ClCompile Include="MusicFile.cpp" />
+    <ClCompile Include="Keys\MusicKeys.cpp" />
     <ClCompile Include="PictureCatalog.cpp" />
     <ClCompile Include="PictureFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.h" />
+    <ClInclude Include="Id3Library\include\id3.h" />
+    <ClInclude Include="Id3Library\include\id3\field.h" />
+    <ClInclude Include="Id3Library\include\id3\globals.h" />
+    <ClInclude Include="Id3Library\include\id3\helpers.h" />
+    <ClInclude Include="Id3Library\include\id3\id3lib_frame.h" />
+    <ClInclude Include="Id3Library\include\id3\id3lib_streams.h" />
+    <ClInclude Include="Id3Library\include\id3\id3lib_strings.h" />
+    <ClInclude Include="Id3Library\include\id3\io_decorators.h" />
+    <ClInclude Include="Id3Library\include\id3\io_helpers.h" />
+    <ClInclude Include="Id3Library\include\id3\io_strings.h" />
+    <ClInclude Include="Id3Library\include\id3\misc_support.h" />
+    <ClInclude Include="Id3Library\include\id3\reader.h" />
+    <ClInclude Include="Id3Library\include\id3\readers.h" />
+    <ClInclude Include="Id3Library\include\id3\sized_types.h" />
+    <ClInclude Include="Id3Library\include\id3\tag.h" />
+    <ClInclude Include="Id3Library\include\id3\utils.h" />
+    <ClInclude Include="Id3Library\include\id3\writer.h" />
+    <ClInclude Include="Id3Library\include\id3\writers.h" />
+    <ClInclude Include="Keys\FileKeys.h" />
     <ClInclude Include="MainView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -102,6 +123,7 @@
     <ClInclude Include="MovieFile.h" />
     <ClInclude Include="MusicCatalog.h" />
     <ClInclude Include="MusicFile.h" />
+    <ClInclude Include="Keys\MusicKeys.h" />
     <ClInclude Include="PictureCatalog.h" />
     <ClInclude Include="PictureFile.h" />
   </ItemGroup>

@@ -5,37 +5,31 @@ using namespace System::Data;
 
 MusicFile::MusicFile()
 {
-	title = "unbekannt";
-	artist = "unbekannt";
-	albumartist = "unbekannt";
-	album = "unbekannt";
-	genre = "unbekannt";
-	duration = "00:00:00";
+	informations->Add(titleKey, "unbekannt");
+	informations->Add(artistKey, "unbekannt");
+	informations->Add(albumArtistKey, "unbekannt");
+	informations->Add(albumKey, "unbekannt");
+	informations->Add(genreKey, "unbekannt");
+	informations->Add(durationKey, "00:00:00");
 }
-
-MusicFile::MusicFile(String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur)
-	: title(tit), artist(art), albumartist(aart), album(alb), genre(gen), duration(dur)
-{
-
-}
-
-MusicFile::MusicFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur)
-	: MediaFile(pat, dcre, dmod), title(tit), artist(art), albumartist(aart), album(alb), genre(gen), duration(dur)
-{
-	
-}
-
 
 MusicFile::~MusicFile()
 {
 }
 
-String ^ MusicFile::getTitle(){ return title; }
-String ^ MusicFile::getArtist(){ return artist; }
-String ^ MusicFile::getAlbumartist(){ return albumartist; }
-String ^ MusicFile::getAlbum(){ return album; }
-String ^ MusicFile::getGenre(){ return genre; }
-String ^ MusicFile::getDuration(){ return duration; }
+String ^ MusicFile::getTitle(){ return informations[titleKey]; }
+String ^ MusicFile::getArtist(){ return informations[artistKey]; }
+String ^ MusicFile::getAlbumArtist(){ return informations[albumArtistKey]; }
+String ^ MusicFile::getAlbum(){ return informations[albumKey]; }
+String ^ MusicFile::getGenre(){ return informations[genreKey]; }
+String ^ MusicFile::getDuration(){ return informations[durationKey]; }
+
+void MusicFile::setTitle(String ^title){ informations[MusicFile::titleKey] = title; }
+void MusicFile::setArtist(String ^artist){ informations[MusicFile::artistKey] = artist; }
+void MusicFile::setAlbumArtist(String ^albumArtist){ informations[MusicFile::albumArtistKey] = albumArtist; }
+void MusicFile::setAlbum(String ^album){ informations[MusicFile::albumKey] = album; }
+void MusicFile::setGenre(String ^genre){ informations[MusicFile::genreKey] = genre; }
+void MusicFile::setDuration(String ^duration){ informations[MusicFile::durationKey] = duration; }
 
 void MusicFile::play()
 {

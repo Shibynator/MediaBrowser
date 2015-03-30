@@ -7,26 +7,31 @@ using namespace System::Data;
 
 ref class MusicFile : public MediaFile
 {
-private:
-	String ^ title;
-	String ^ artist;
-	String ^ albumartist;
-	String ^ album;
-	String ^ genre;
-	String ^ duration;
+protected:
+	static String ^ titleKey = "Title";
+	static String ^ artistKey = "Artist";
+	static String ^ albumArtistKey = "Album Artist";
+	static String ^ albumKey = "Album";
+	static String ^ genreKey = "Genre";
+	static String ^ durationKey = "Duration";
 
 public:
 	MusicFile();
-	MusicFile(String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur);
-	MusicFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ art, String ^ aart, String ^ alb, String ^ gen, String ^ dur);
 	virtual ~MusicFile();
 
 	String ^ getTitle();
 	String ^ getArtist();
-	String ^ getAlbumartist();
+	String ^ getAlbumArtist();
 	String ^ getAlbum();
 	String ^ getGenre();
 	String ^ getDuration();
+
+	void setTitle(String ^title);
+	void setArtist(String ^artist);
+	void setAlbumArtist(String ^albumArtist);
+	void setAlbum(String ^album);
+	void setGenre(String ^genre);
+	void setDuration(String ^duration);
 
 	virtual void play() override;
 	virtual void edit() override;

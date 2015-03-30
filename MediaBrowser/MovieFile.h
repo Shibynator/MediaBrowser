@@ -14,8 +14,6 @@ private:
 
 public:
 	MovieFile();
-	MovieFile(String ^ tit, String ^ res, String ^ dur, String ^ frm);
-	MovieFile(String ^ pat, String ^ dcre, String ^ dmod, String ^ tit, String ^ res, String ^ dur, String ^ frm);
 	virtual ~MovieFile();
 
 	virtual void play() override;

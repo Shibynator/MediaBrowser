@@ -1,4 +1,5 @@
 #pragma once
+#include "MediaFile.h"
 
 #include "MusicFile.h"
 
@@ -19,5 +20,7 @@ public:
 	virtual void remove();
 	virtual void save();
 	virtual void load();
+
+	void Add(MediaFile ^newFile);
 };
 

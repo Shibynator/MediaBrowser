@@ -5,30 +5,28 @@ using namespace System::Data;
 
 MediaFile::MediaFile()
 {
-	path = "unbekannt";
-	datecreation = "01/01/2015 00:00:01";
-	datemodified = "01/01/2015 00:00:01";
-}
-
-MediaFile::MediaFile(String ^ pat, String ^ dcre, String ^ dmod)
-	: path(pat), datecreation(dcre), datemodified(dmod)
-{
+	informations->Add(pathKey, "unbekannt");
+	informations->Add(dateCreationKey, "01/01/2015 00:00:01");
+	informations->Add(dateModifiedKey, "01/01/2015 00:00:01");
 }
 
 MediaFile::~MediaFile()
 {
 }
 
-String ^ MediaFile::getPath(){	return path; }
-String ^ MediaFile::getDateCreation(){ return datecreation; }
-String ^ MediaFile::getDateModified(){ return datemodified; }
+Dictionary<String^, String^> ^ MediaFile::getInformations(){ return informations; }
+String ^ MediaFile::getPath(){ return informations[MediaFile::pathKey]; }
+String ^ MediaFile::getDateCreation(){ return informations[MediaFile::dateCreationKey]; }
+String ^ MediaFile::getDateModified(){ return informations[MediaFile::dateModifiedKey]; }
+
+void MediaFile::setPath(String ^path){ informations[MediaFile::pathKey] = path; }
+void MediaFile::setDateCreation(String ^dateCreation){ informations[MediaFile::dateCreationKey] = dateCreation; }
+void MediaFile::setDateModified(String ^dateModified){ informations[MediaFile::dateModifiedKey] = dateModified; }
 
 void MediaFile::play()
 {
-
 }
 
 void MediaFile::edit()
 {
-
 }

@@ -6,22 +6,29 @@
 
 using namespace System;
 using namespace System::Data;
+using namespace System::Collections::Generic;
 
 ref class MediaFile
 {
-private:
-	String ^ path;
-	String ^ datecreation;
-	String ^ datemodified;
+protected:
+	Dictionary<String^, String^> ^informations = gcnew Dictionary<String^, String^>();
+	static String ^pathKey = "Path";
+	static String ^dateCreationKey = "DateCreated";
+	static String ^dateModifiedKey = "DateModified";
+
 
 public:
 	MediaFile();
-	MediaFile(String ^ pat, String ^ dcre, String ^ dmod);
 	virtual ~MediaFile();
 
-	String ^ getPath();
-	String ^ getDateCreation();
-	String ^ getDateModified();
+	Dictionary<String^, String^> ^getInformations();
+	String ^getPath();
+	String ^getDateCreation();
+	String ^getDateModified();
+
+	void setPath(String ^path);
+	void setDateCreation(String ^dateCreation);
+	void setDateModified(String ^dateModified);
 
 	virtual void play();
 	virtual void edit();
