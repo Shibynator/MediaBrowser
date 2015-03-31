@@ -54,12 +54,6 @@
     <ClCompile Include="PictureCatalog.cpp">
       <Filter>Quelldateien\Katalog</Filter>
     </ClCompile>
-    <ClCompile Include="Keys\MusicKeys.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Keys\FileKeys.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainView.h">
@@ -88,12 +82,6 @@
     </ClInclude>
     <ClInclude Include="PictureCatalog.h">
       <Filter>Headerdateien\Katalog</Filter>
-    </ClInclude>
-    <ClInclude Include="Keys\MusicKeys.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Keys\FileKeys.h">
-      <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Id3Library\include\id3\field.h">
       <Filter>Headerdateien</Filter>
@@ -152,10 +140,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Id3Library\include\Makefile.am" />
+    <None Include="Id3Library\include\Makefile.in" />
+    <None Include="Id3Library\include\id3\id3lib_bitset" />
+    <None Include="Id3Library\include\id3\Makefile.am" />
+    <None Include="Id3Library\include\id3\Makefile.in" />
+    <None Include="dlls\id3lib.dll" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainView.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Id3Library\id3lib.lib" />
   </ItemGroup>
 </Project>
