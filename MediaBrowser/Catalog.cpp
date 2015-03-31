@@ -35,6 +35,7 @@ void Catalog::load()
 
 void Catalog::Add(MediaFile ^newFile){
 
+	//add Columns for new Keys
 	for each (String ^key in newFile->getInformations()->Keys)
 	{
 		if (!Columns->Contains(key)){
@@ -44,6 +45,7 @@ void Catalog::Add(MediaFile ^newFile){
 
 	DataRow ^newRow = NewRow();
 
+	//Store Informations to the Destination-Column
 	for each (String ^key in newFile->getInformations()->Keys)
 	{
 		newRow[key] = newFile->getInformations()[key];

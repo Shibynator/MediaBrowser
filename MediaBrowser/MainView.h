@@ -49,7 +49,7 @@ namespace MediaBrowser {
 		{
 			InitializeComponent();
 
-			musicCatalog = gcnew MusicCatalog();
+			musicCatalog = gcnew Catalog();
 			pictureCatalog = gcnew PictureCatalog();
 			movieCatalog = gcnew MovieCatalog();
 
@@ -57,6 +57,10 @@ namespace MediaBrowser {
 			dataGridViewPicture->DataSource = pictureCatalog;
 			dataGridViewMovie->DataSource = movieCatalog;
 
+
+			dataGridViewMusic->AllowUserToOrderColumns = true;
+			dataGridViewPicture->AllowUserToOrderColumns = true;
+			dataGridViewMovie->AllowUserToOrderColumns = true;
 			//TODO: Konstruktorcode hier hinzufügen.
 
 		}
