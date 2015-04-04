@@ -12,28 +12,23 @@ Catalog::~Catalog()
 void Catalog::import()
 {
 }
-
 void Catalog::search()
 {
 }
-
 void Catalog::sort()
 {
 }
-
 void Catalog::remove()
 {
 }
-
 void Catalog::save()
 {
 }
-
 void Catalog::load()
 {
 }
 
-void Catalog::Add(MediaFile ^newFile){
+void Catalog::add(MediaFile ^newFile){
 
 	//add Columns for new Keys
 	for each (String ^key in newFile->getInformations()->Keys)

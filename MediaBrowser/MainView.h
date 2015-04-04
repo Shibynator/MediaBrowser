@@ -14,6 +14,8 @@
 #include "PictureFile.h"
 #include "MovieFile.h"
 
+#include "MediaInfoDLL.h"
+
 namespace MediaBrowser {
 
 	using namespace System;
@@ -23,6 +25,7 @@ namespace MediaBrowser {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Windows::Forms;
+	//using namespace MediaInfoDLL;		// problem: zweite deklaration von String
 
 	/// <summary>
 	/// Zusammenfassung für MainView
@@ -32,7 +35,6 @@ namespace MediaBrowser {
 	private: System::Windows::Forms::TabControl^  tabControlCatalog;
 	private: System::Windows::Forms::TabPage^  tabPageMusic;
 
-
 	private: System::Windows::Forms::TabPage^  tabPagePicture;
 	private: System::Windows::Forms::TabPage^  tabPageMovie;
 
@@ -40,16 +42,16 @@ namespace MediaBrowser {
 	private: System::Windows::Forms::DataGridView^  dataGridViewMovie;
 	private: System::Windows::Forms::DataGridView^  dataGridViewMusic;
 
-	private:	Catalog  ^ musicCatalog;
-	private:	Catalog ^ pictureCatalog;
-	private:	Catalog ^ movieCatalog;
+	private:	MusicCatalog  ^ musicCatalog;
+	private:	PictureCatalog ^ pictureCatalog;
+	private:	MovieCatalog ^ movieCatalog;
 
 	public:
 		MainView(void)
 		{
 			InitializeComponent();
 
-			musicCatalog = gcnew Catalog();
+			musicCatalog = gcnew MusicCatalog();
 			pictureCatalog = gcnew PictureCatalog();
 			movieCatalog = gcnew MovieCatalog();
 
@@ -258,131 +260,17 @@ namespace MediaBrowser {
 		this->Close();
 	}
 	private: System::Void verzeichnissImportierenToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-		String ^ folderPath;
-		String ^ endingMusic = "\\*.mp3";
-		String ^ endingPicture = "\\*.jpeg";
-		String ^ endingMovie = "\\*.mp4";
-
 		FolderBrowserDialog ^ folderDialog = gcnew FolderBrowserDialog();
 
 		if (folderDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
-			folderPath = folderDialog->SelectedPath;
-
-			WIN32_FIND_DATA FindFileData;
-			HANDLE hFind;
-
-			hFind = FindFirstFile((wchar_t*)(Runtime::InteropServices::Marshal::StringToHGlobalUni(folderPath + endingMusic).ToPointer()), &FindFileData);
-			if(hFind == INVALID_HANDLE_VALUE)
-			{
-				//	FindFirstFile failed
-			}
-			else
-			{
-				do
-				{
-					//Skip directories
-					if (FILE_ATTRIBUTE_DIRECTORY & FindFileData.dwFileAttributes)
-						continue;
-
-					String ^ const strFilename = gcnew String(FindFileData.cFileName);
-					String ^ strTitle = "", ^ strArtist = "", ^ strAlbumartist = "", ^ strAlbum = "", ^ strGenre = "", ^ strDuration = "", ^ strDateModified = "", ^ strDateCreation = "";
-
-					FILE *file;
-					const char * filename = (const char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(folderPath + "\\" + strFilename).ToPointer());
-					file = fopen(filename, "r");
-
-					if (file != NULL)
-					{
-						ID3_Tag myTag;
-						ID3_Frame* myFrame = NULL;
-						char field[128];
-						myTag.Link(filename);
-						// Titel
-						myFrame = myTag.Find(ID3FID_TITLE);
-						if (NULL != myFrame)
-						{
-							myFrame->Field(ID3FN_TEXT).Get(field, 128);
-							strTitle = gcnew String(field);
-						}
-						// Artist
-						myFrame = myTag.Find(ID3FID_LEADARTIST);
-						if (NULL != myFrame)
-						{
-							myFrame->Field(ID3FN_TEXT).Get(field, 128);
-							strArtist = gcnew String(field);
-						}
-						// Albumartist
-						myFrame = myTag.Find(ID3FID_BAND);
-						if (NULL != myFrame)
-						{
-							myFrame->Field(ID3FN_TEXT).Get(field, 128);
-							strAlbumartist = gcnew String(field);
-						}
-						// Album
-						myFrame = myTag.Find(ID3FID_ALBUM);
-						if (NULL != myFrame)
-						{
-							myFrame->Field(ID3FN_TEXT).Get(field, 128);
-							strAlbum = gcnew String(field);
-						}
-						// Genre
-						unsigned char genrenum = ID3_GetGenreNum(&myTag);
-						if (genrenum != 0xFF)
-						{
-							char * sGenre = (char*)ID3_v1_genre_description[genrenum];
-							strGenre = gcnew String(sGenre);
-						}
-						// Länge			
-						myFrame = myTag.Find(ID3FID_SONGLEN);
-						if (NULL != myFrame)
-						{
-							myFrame->Field(ID3FN_TEXT).Get(field, 128);
-							strDuration = gcnew String(field);
-						}
-						else{ strDuration = "0"; }
-
-						const Mp3_Headerinfo* mp3info;
-						mp3info = myTag.GetMp3HeaderInfo();
-						if (mp3info){ strDuration = Convert::ToString(mp3info->time)->PadLeft(2, '0') + ":" + Convert::ToString(mp3info->time / 60)->PadLeft(2, '0'); }
-
-						fclose(file);
-					}
-
-					SYSTEMTIME fileTime;
-					// Änderungsdatum
-					FileTimeToSystemTime(&FindFileData.ftLastWriteTime ,&fileTime);
-					strDateModified = Convert::ToString(fileTime.wDay) + "." + Convert::ToString(fileTime.wMonth) + "." + Convert::ToString(fileTime.wYear) + " " + Convert::ToString(fileTime.wHour) + ":" + Convert::ToString(fileTime.wMinute);
-					// Erstelldatum
-					FileTimeToSystemTime(&FindFileData.ftCreationTime, &fileTime);
-					strDateCreation = Convert::ToString(fileTime.wDay) + "." + Convert::ToString(fileTime.wMonth) + "." + Convert::ToString(fileTime.wYear) + " " + Convert::ToString(fileTime.wHour) + ":" + Convert::ToString(fileTime.wMinute);
-
-
-					MusicFile ^ musicFile = gcnew MusicFile();
-
-					musicFile->setPath(folderPath + "\\" + strFilename);
-					musicFile->setDateCreation(strDateCreation);
-					musicFile->setDateModified(strDateModified);
-					musicFile->setTitle(strTitle);
-					musicFile->setArtist(strArtist);
-					musicFile->setAlbumArtist(strAlbumartist);
-					musicFile->setAlbum(strAlbum);
-					musicFile->setGenre(strGenre);
-					musicFile->setDuration(strDuration);
-
-					musicCatalog->Add(musicFile);
-
-					delete musicFile;
-
-				} while (FindNextFile(hFind, &FindFileData));
-
-				FindClose(hFind);
-			}
-
+			musicCatalog->import(folderDialog->SelectedPath);
+			movieCatalog->import(folderDialog->SelectedPath);
+			pictureCatalog->import(folderDialog->SelectedPath);
 		}
 		else
 		{
-		//	folderPath = "undef";
+			//	folderPath = "undef";
 		}
 	}
 };

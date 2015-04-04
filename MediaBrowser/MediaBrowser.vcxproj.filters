@@ -25,6 +25,15 @@
     <Filter Include="Headerdateien\Katalog">
       <UniqueIdentifier>{081767a4-6e02-46b2-8e74-bf00005ace1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\ID3">
+      <UniqueIdentifier>{7ccf89b9-abbf-4d59-991f-815da2c3f7d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\MediaInfo">
+      <UniqueIdentifier>{49c4b447-ebd0-40f3-bcfe-4f91e3a53edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\MediaInfo">
+      <UniqueIdentifier>{a8b790c7-5588-4c25-af3b-cd1e26e906be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainView.cpp">
@@ -84,58 +93,64 @@
       <Filter>Headerdateien\Katalog</Filter>
     </ClInclude>
     <ClInclude Include="Id3Library\include\id3\field.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\ID3</Filter>
     </ClInclude>
     <ClInclude Include="Id3Library\include\id3\globals.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\ID3</Filter>
     </ClInclude>
     <ClInclude Include="Id3Library\include\id3\helpers.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\id3lib_frame.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\id3lib_streams.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\id3lib_strings.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\io_decorators.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\io_helpers.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\io_strings.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\misc_support.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\reader.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\readers.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\sized_types.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\tag.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\utils.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\writer.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Id3Library\include\id3\writers.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\ID3</Filter>
     </ClInclude>
     <ClInclude Include="Id3Library\include\id3.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\id3lib_frame.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\id3lib_streams.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\id3lib_strings.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\io_decorators.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\io_helpers.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\io_strings.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\misc_support.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\reader.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\readers.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\sized_types.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\tag.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\utils.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\writer.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="Id3Library\include\id3\writers.h">
+      <Filter>Headerdateien\ID3</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.h">
+      <Filter>Headerdateien\MediaInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL_Static.h">
+      <Filter>Headerdateien\MediaInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,13 +161,56 @@
     <None Include="Id3Library\include\id3\Makefile.am" />
     <None Include="Id3Library\include\id3\Makefile.in" />
     <None Include="dlls\id3lib.dll" />
+    <None Include="MediaInfo\Developers\Contrib\ActiveX\Example\HowToUse_ActiveX.htm" />
+    <None Include="MediaInfo\Developers\Contrib\ExcelVBA\HowTo.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info___const_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_d_l_l_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_list_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\annotated.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info_list.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info_list-members.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info-members.html" />
+    <None Include="MediaInfo\Developers\Doc\classes.html" />
+    <None Include="MediaInfo\Developers\Doc\dir_04ac3ca04e7df05c28b97e8a54b78cec.html" />
+    <None Include="MediaInfo\Developers\Doc\dir_1948383ebc858d7498bcb23a8a53c434.html" />
+    <None Include="MediaInfo\Developers\Doc\files.html" />
+    <None Include="MediaInfo\Developers\Doc\functions.html" />
+    <None Include="MediaInfo\Developers\Doc\functions_func.html" />
+    <None Include="MediaInfo\Developers\Doc\index.html" />
+    <None Include="MediaInfo\Developers\Doc\namespace_media_info_lib.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_enum.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_eval.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_type.html" />
+    <None Include="MediaInfo\Developers\Doc\namespaces.html" />
+    <None Include="MediaInfo\Developers\Documentation.html" />
+    <None Include="MediaInfo\Developers\License.html" />
+    <None Include="MediaInfo\MediaInfo.dll" />
+    <None Include="dlls\MediaInfo.dll" />
+    <None Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.def">
+      <Filter>Quelldateien\MediaInfo</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainView.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSJS\Example\HowToUse_Dll.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\My Project\Resources.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\HowToUse_Dll.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Id3Library\id3lib.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MediaInfo\ReadMe.txt" />
   </ItemGroup>
 </Project>

@@ -21,6 +21,6 @@ public:
 	virtual void save();
 	virtual void load();
 
-	void Add(MediaFile ^newFile);
+	void add(MediaFile ^newFile);
 };
 

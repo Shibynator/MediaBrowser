@@ -52,7 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;ID3LIB_LINKOPTION=3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Id3Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\MediaInfo\Developers\Source\MediaInfoDLL;$(ProjectDir)\Id3Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -119,6 +119,8 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MediaFile.h" />
+    <ClInclude Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.h" />
+    <ClInclude Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL_Static.h" />
     <ClInclude Include="MovieCatalog.h" />
     <ClInclude Include="MovieFile.h" />
     <ClInclude Include="MusicCatalog.h" />
@@ -130,18 +132,55 @@
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSJS\Example\HowToUse_Dll.resx" />
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\HowToUse_Dll.resx" />
+    <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\My Project\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="dlls\id3lib.dll" />
+    <None Include="dlls\MediaInfo.dll" />
     <None Include="Id3Library\include\id3\id3lib_bitset" />
     <None Include="Id3Library\include\id3\Makefile.am" />
     <None Include="Id3Library\include\id3\Makefile.in" />
     <None Include="Id3Library\include\Makefile.am" />
     <None Include="Id3Library\include\Makefile.in" />
+    <None Include="MediaInfo\Developers\Contrib\ActiveX\Example\HowToUse_ActiveX.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="MediaInfo\Developers\Contrib\ExcelVBA\HowTo.html" />
+    <None Include="MediaInfo\Developers\Documentation.html" />
+    <None Include="MediaInfo\Developers\Doc\annotated.html" />
+    <None Include="MediaInfo\Developers\Doc\classes.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info-members.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info_list-members.html" />
+    <None Include="MediaInfo\Developers\Doc\class_media_info_lib_1_1_media_info_list.html" />
+    <None Include="MediaInfo\Developers\Doc\dir_04ac3ca04e7df05c28b97e8a54b78cec.html" />
+    <None Include="MediaInfo\Developers\Doc\dir_1948383ebc858d7498bcb23a8a53c434.html" />
+    <None Include="MediaInfo\Developers\Doc\files.html" />
+    <None Include="MediaInfo\Developers\Doc\functions.html" />
+    <None Include="MediaInfo\Developers\Doc\functions_func.html" />
+    <None Include="MediaInfo\Developers\Doc\index.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_enum.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_eval.html" />
+    <None Include="MediaInfo\Developers\Doc\namespacemembers_type.html" />
+    <None Include="MediaInfo\Developers\Doc\namespaces.html" />
+    <None Include="MediaInfo\Developers\Doc\namespace_media_info_lib.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_d_l_l_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info_list_8h_source.html" />
+    <None Include="MediaInfo\Developers\Doc\_media_info___const_8h_source.html" />
+    <None Include="MediaInfo\Developers\License.html" />
+    <None Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.def" />
+    <None Include="MediaInfo\MediaInfo.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Id3Library\id3lib.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MediaInfo\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

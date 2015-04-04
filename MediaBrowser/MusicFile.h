@@ -10,7 +10,7 @@ ref class MusicFile : public MediaFile
 protected:
 	static String ^ titleKey = "Title";
 	static String ^ artistKey = "Artist";
-	static String ^ albumArtistKey = "Album Artist";
+	static String ^ albumArtistKey = "Albumartist";
 	static String ^ albumKey = "Album";
 	static String ^ genreKey = "Genre";
 	static String ^ durationKey = "Duration";
