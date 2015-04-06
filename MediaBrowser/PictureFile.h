@@ -6,7 +6,7 @@ using namespace System;
 
 ref class PictureFile : public MediaFile
 {
-protected:
+public:
 	static String ^ titleKey = "Title";
 	static String ^ resolutionKey = "Resolution";
 	static String ^ fstopKey = "Fstop";

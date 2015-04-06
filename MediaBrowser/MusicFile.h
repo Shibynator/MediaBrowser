@@ -7,7 +7,7 @@ using namespace System::Data;
 
 ref class MusicFile : public MediaFile
 {
-protected:
+public:
 	static String ^ titleKey = "Title";
 	static String ^ artistKey = "Artist";
 	static String ^ albumArtistKey = "Albumartist";

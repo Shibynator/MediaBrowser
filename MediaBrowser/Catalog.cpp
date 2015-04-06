@@ -12,12 +12,11 @@ Catalog::~Catalog()
 void Catalog::import()
 {
 }
-void Catalog::search()
+
+void Catalog::getFile()
 {
 }
-void Catalog::sort()
-{
-}
+
 void Catalog::remove()
 {
 }
@@ -28,7 +27,8 @@ void Catalog::load()
 {
 }
 
-void Catalog::add(MediaFile ^newFile){
+void Catalog::add(MediaFile ^newFile)
+{
 
 	//add Columns for new Keys
 	for each (String ^key in newFile->getInformations()->Keys)
@@ -47,4 +47,16 @@ void Catalog::add(MediaFile ^newFile){
 	}
 
 	Rows->Add(newRow);
+}
+
+void Catalog::search(String ^ searchStr)
+{
+	String ^ filterStr;
+
+	for each (DataColumn ^ column in Columns)
+	{
+		filterStr += column->ToString() + " LIKE '%" + searchStr + "%' OR ";
+	}
+	filterStr = filterStr->Remove(filterStr->Length - 3);	// remove last "OR"
+	DefaultView->RowFilter = filterStr;
 }

@@ -15,12 +15,13 @@ public:
 	virtual ~Catalog();
 
 	virtual void import();
-	virtual void search();
-	virtual void sort();
+	virtual void getFile();
+
 	virtual void remove();
 	virtual void save();
 	virtual void load();
 
-	void add(MediaFile ^newFile);
+	void add(MediaFile ^ newFile);
+	void search(String ^ searchStr);
 };
 

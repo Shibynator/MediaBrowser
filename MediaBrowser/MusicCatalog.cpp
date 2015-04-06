@@ -71,12 +71,22 @@ void MusicCatalog::import(String ^ folderPath)
 	}
 }
 
-void MusicCatalog::search()
+MusicFile ^ MusicCatalog::getFile(DataGridViewRow ^ currentRow)
 {
-}
+	DataRow ^ drow = safe_cast<DataRowView ^>(currentRow->DataBoundItem)->Row;
 
-void MusicCatalog::sort()
-{
+	MusicFile ^ musicFile = gcnew MusicFile();
+	musicFile->setPath(drow[MusicFile::pathKey]->ToString());
+	musicFile->setDateCreation(drow[MusicFile::dateCreationKey]->ToString());
+	musicFile->setDateModified(drow[MusicFile::dateModifiedKey]->ToString());
+	musicFile->setTitle(drow[MusicFile::titleKey]->ToString());
+	musicFile->setArtist(drow[MusicFile::artistKey]->ToString());
+	musicFile->setAlbumArtist(drow[MusicFile::albumArtistKey]->ToString());
+	musicFile->setAlbum(drow[MusicFile::albumKey]->ToString());
+	musicFile->setGenre(drow[MusicFile::genreKey]->ToString());
+	musicFile->setDuration(drow[MusicFile::durationKey]->ToString());
+
+	return musicFile;
 }
 
 void MusicCatalog::remove()
@@ -90,5 +100,4 @@ void MusicCatalog::save()
 void MusicCatalog::load()
 {
 }
-
 

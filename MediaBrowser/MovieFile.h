@@ -7,7 +7,7 @@ using namespace System::Data;
 
 ref class MovieFile : public MediaFile
 {
-protected:
+public:
 	static String ^ titleKey = "Title";
 	static String ^ resolutionKey = "Resolution";
 	static String ^ durationKey = "Duration";

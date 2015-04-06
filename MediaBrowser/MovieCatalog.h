@@ -5,6 +5,7 @@
 #include "MovieFile.h"
 
 using namespace System::Collections::Generic;
+using namespace System::Windows::Forms;
 
 ref class MovieCatalog : public Catalog
 {
@@ -16,9 +17,8 @@ public:
 	virtual ~MovieCatalog();
 
 	virtual void import(String ^ folderPath);
+	virtual MovieFile ^ getFile(DataGridViewRow ^ currentRow);
 
-	virtual void search() override;
-	virtual void sort() override;
 	virtual void remove() override;
 	virtual void save() override;
 	virtual void load() override;

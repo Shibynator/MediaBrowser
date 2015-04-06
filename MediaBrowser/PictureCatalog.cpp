@@ -65,12 +65,21 @@ void PictureCatalog::import(String ^ folderPath)
 	}
 }
 
-void PictureCatalog::search()
+PictureFile ^ PictureCatalog::getFile(DataGridViewRow ^ currentRow)
 {
-}
+	DataRow ^ drow = safe_cast<DataRowView ^>(currentRow->DataBoundItem)->Row;
 
-void PictureCatalog::sort()
-{
+	PictureFile ^ pictureFile = gcnew PictureFile();
+	pictureFile->setPath(drow[PictureFile::pathKey]->ToString());
+	pictureFile->setDateCreation(drow[PictureFile::dateCreationKey]->ToString());
+	pictureFile->setDateModified(drow[PictureFile::dateModifiedKey]->ToString());
+	pictureFile->setTitle(drow[PictureFile::titleKey]->ToString());
+	pictureFile->setResolution(drow[PictureFile::resolutionKey]->ToString());
+	pictureFile->setFstop(drow[PictureFile::fstopKey]->ToString());
+	pictureFile->setExposuretime(drow[PictureFile::exposuretimeKey]->ToString());
+	pictureFile->setISO(drow[PictureFile::isoKey]->ToString());
+
+	return pictureFile;
 }
 
 void PictureCatalog::remove()

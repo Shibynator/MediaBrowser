@@ -12,6 +12,7 @@ ref class MediaFile
 {
 protected:
 	Dictionary<String^, String^> ^informations = gcnew Dictionary<String^, String^>();
+public:
 	static String ^pathKey = "Path";
 	static String ^dateCreationKey = "DateCreated";
 	static String ^dateModifiedKey = "DateModified";
