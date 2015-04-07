@@ -84,9 +84,6 @@ MovieFile ^ MovieCatalog::getFile(DataGridViewRow ^ currentRow)
 	return movieFile;
 }
 
-void MovieCatalog::remove()
-{
-}
 
 void MovieCatalog::save()
 {

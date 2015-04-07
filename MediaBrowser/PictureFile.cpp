@@ -22,7 +22,6 @@ void PictureFile::setFstop(String ^fstop){ informations[PictureFile::fstopKey] =
 void PictureFile::setExposuretime(String ^exposuretime){ informations[PictureFile::exposuretimeKey] = exposuretime; }
 void PictureFile::setISO(String ^iso){ informations[PictureFile::isoKey] = iso; }
 
-void PictureFile::play(){ System::Diagnostics::Process::Start(getPath()); }
 
 void PictureFile::edit()
 {

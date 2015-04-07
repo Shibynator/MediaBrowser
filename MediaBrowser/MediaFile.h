@@ -31,7 +31,8 @@ public:
 	void setDateCreation(String ^dateCreation);
 	void setDateModified(String ^dateModified);
 
-	virtual void play();
+	void play();
+
 	virtual void edit();
 };
 

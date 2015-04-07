@@ -89,9 +89,6 @@ MusicFile ^ MusicCatalog::getFile(DataGridViewRow ^ currentRow)
 	return musicFile;
 }
 
-void MusicCatalog::remove()
-{
-}
 
 void MusicCatalog::save()
 {

@@ -25,6 +25,11 @@ void MediaFile::setDateModified(String ^dateModified){ informations[MediaFile::d
 
 void MediaFile::play()
 {
+	try{ System::Diagnostics::Process::Start(getPath()); }
+	catch(...)		// catch all
+	{
+		// exception
+	}
 }
 
 void MediaFile::edit()

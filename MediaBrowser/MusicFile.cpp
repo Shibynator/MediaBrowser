@@ -31,8 +31,6 @@ void MusicFile::setAlbum(String ^album){ informations[MusicFile::albumKey] = alb
 void MusicFile::setGenre(String ^genre){ informations[MusicFile::genreKey] = genre; }
 void MusicFile::setDuration(String ^duration){ informations[MusicFile::durationKey] = duration; }
 
-void MusicFile::play(){ System::Diagnostics::Process::Start(getPath()); }
-
 void MusicFile::edit() 
 {
 }

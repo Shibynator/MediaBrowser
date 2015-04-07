@@ -82,9 +82,7 @@ PictureFile ^ PictureCatalog::getFile(DataGridViewRow ^ currentRow)
 	return pictureFile;
 }
 
-void PictureCatalog::remove()
-{
-}
+
 
 void PictureCatalog::save()
 {

@@ -19,7 +19,6 @@ public:
 	virtual void import(String ^ folderPath);
 	virtual MovieFile ^ getFile(DataGridViewRow ^ currentRow);
 
-	virtual void remove() override;
 	virtual void save() override;
 	virtual void load() override;
 };

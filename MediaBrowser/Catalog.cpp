@@ -17,9 +17,6 @@ void Catalog::getFile()
 {
 }
 
-void Catalog::remove()
-{
-}
 void Catalog::save()
 {
 }
@@ -29,7 +26,6 @@ void Catalog::load()
 
 void Catalog::add(MediaFile ^newFile)
 {
-
 	//add Columns for new Keys
 	for each (String ^key in newFile->getInformations()->Keys)
 	{
@@ -59,4 +55,16 @@ void Catalog::search(String ^ searchStr)
 	}
 	filterStr = filterStr->Remove(filterStr->Length - 3);	// remove last "OR"
 	DefaultView->RowFilter = filterStr;
+}
+
+void Catalog::remove(DataGridViewRow ^ currentRow)
+{
+	try
+	{
+		DataRow ^ drow = safe_cast<DataRowView ^>(currentRow->DataBoundItem)->Row;
+		Rows->Remove(drow);
+	}
+	catch (...)
+	{
+	}
 }

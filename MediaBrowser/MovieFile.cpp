@@ -24,8 +24,6 @@ void MovieFile::setResolution(String ^resolution){ informations[MovieFile::resol
 void MovieFile::setDuration(String ^duration){ informations[MovieFile::durationKey] = duration; }
 void MovieFile::setFramerate(String ^framerate){ informations[MovieFile::framerateKey] = framerate; }
 
-void MovieFile::play(){ System::Diagnostics::Process::Start(getPath()); }
-
 void MovieFile::edit()
 {
 }
