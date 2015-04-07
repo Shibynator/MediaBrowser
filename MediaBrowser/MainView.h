@@ -351,14 +351,14 @@ namespace MediaBrowser {
 	private: System::Void dataGridViewPicture_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if (e->KeyCode == Keys::Delete)
 		{
-			pictureCatalog->remove(this->dataGridViewMusic->CurrentRow);
+			pictureCatalog->remove(this->dataGridViewPicture->CurrentRow);
 			e->Handled = true;
 		}
 	}
 	private: System::Void dataGridViewMovie_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if (e->KeyCode == Keys::Delete)
 		{
-			movieCatalog->remove(this->dataGridViewMusic->CurrentRow);
+			movieCatalog->remove(this->dataGridViewMovie->CurrentRow);
 			e->Handled = true;
 		}
 	}
