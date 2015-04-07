@@ -192,6 +192,7 @@
     <None Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.def">
       <Filter>Quelldateien\MediaInfo</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainView.resx">

@@ -15,6 +15,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>MediaBrowser</RootNamespace>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,7 +42,9 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="UserMacros">
+    <NuGetPackageImportStamp>382448c5</NuGetPackageImportStamp>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -52,7 +56,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;ID3LIB_LINKOPTION=3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\MediaInfo\Developers\Source\MediaInfoDLL;$(ProjectDir)\Id3Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\packages\freeimage.3.16.0\build\native\include;$(ProjectDir)\MediaInfo\Developers\Source\MediaInfoDLL;$(ProjectDir)\Id3Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -175,6 +179,7 @@
     <None Include="MediaInfo\Developers\License.html" />
     <None Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL.def" />
     <None Include="MediaInfo\MediaInfo.dll" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Id3Library\id3lib.lib" />
@@ -184,5 +189,16 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+    <Import Project="..\packages\freeimage.redist.3.16.0\build\native\freeimage.redist.targets" Condition="Exists('..\packages\freeimage.redist.3.16.0\build\native\freeimage.redist.targets')" />
+    <Import Project="..\packages\freeimage.3.16.0\build\native\freeimage.targets" Condition="Exists('..\packages\freeimage.3.16.0\build\native\freeimage.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Aktivieren Sie die Wiederherstellung von NuGet-Paketen, um die fehlende Datei herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\freeimage.redist.3.16.0\build\native\freeimage.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\freeimage.redist.3.16.0\build\native\freeimage.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\freeimage.3.16.0\build\native\freeimage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\freeimage.3.16.0\build\native\freeimage.targets'))" />
+  </Target>
 </Project>

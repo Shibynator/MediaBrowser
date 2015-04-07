@@ -1,5 +1,6 @@
 #include "PictureCatalog.h"
 #include "PictureFile.h"
+#include <FreeImage.h>
 
 PictureCatalog::PictureCatalog()
 {
