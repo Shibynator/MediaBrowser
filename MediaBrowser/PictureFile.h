@@ -28,8 +28,5 @@ public:
 	void setFstop(String ^fstop);
 	void setExposuretime(String ^exposuretime);
 	void setISO(String ^iso);
-
-	virtual void play() override;
-	virtual void edit() override;
 };
 

@@ -11,16 +11,14 @@ ref class PictureCatalog : public Catalog
 {
 private:
 	String ^ const endingPictureJPG = "\\*.jpg";
+	String ^ const pathSaveFileCatalog = "pictureCatalog.xml";
+	String ^ const pathSaveFileSchema = "pictureSchema.xml";
 
 public:
-	PictureCatalog();
+	PictureCatalog(String ^ pathSaveName, String ^ pathSaveSchema);
 	virtual ~PictureCatalog();
 
 	virtual void import(String ^ folderPath);
 	virtual PictureFile ^ getFile(DataGridViewRow ^ currentRow);
-
-	virtual void remove() override;
-	virtual void save() override;
-	virtual void load() override;
 };
 

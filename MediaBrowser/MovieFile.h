@@ -26,8 +26,5 @@ public:
 	void setResolution(String ^resolution);
 	void setDuration(String ^duration);
 	void setFramerate(String ^framerate);
-
-	virtual void play() override;
-	virtual void edit() override;
 };
 

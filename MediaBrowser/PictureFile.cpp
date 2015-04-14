@@ -4,6 +4,14 @@ using namespace System;
 
 PictureFile::PictureFile()
 {
+	// todo fil dictonary
+
+	// config which tags should be editable 
+	readonlyinformation->Add(titleKey, true);
+	readonlyinformation->Add(resolutionKey, true);
+	readonlyinformation->Add(fstopKey, true);
+	readonlyinformation->Add(exposuretimeKey, true);
+	readonlyinformation->Add(isoKey, true);
 }
 
 PictureFile::~PictureFile()
@@ -21,9 +29,3 @@ void PictureFile::setResolution(String ^resolution){ informations[PictureFile::r
 void PictureFile::setFstop(String ^fstop){ informations[PictureFile::fstopKey] = fstop; }
 void PictureFile::setExposuretime(String ^exposuretime){ informations[PictureFile::exposuretimeKey] = exposuretime; }
 void PictureFile::setISO(String ^iso){ informations[PictureFile::isoKey] = iso; }
-
-void PictureFile::play(){ System::Diagnostics::Process::Start(getPath()); }
-
-void PictureFile::edit()
-{
-}

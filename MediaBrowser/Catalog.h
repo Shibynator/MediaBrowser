@@ -26,19 +26,23 @@ public:
 
 		return newFile;
 	}
+protected:
+	String ^ const pathSaveDir = "C:\\MediaBrowserTest";
+	String ^ pathSaveFileCatalog;
+	String ^ pathSaveFileSchema;
 
 public:
-	Catalog();
+	Catalog(String ^ pathSaveDir, String ^ pathSaveName);
 	virtual ~Catalog();
 
 	virtual void import();
 	virtual void getFile();
 
-	virtual void remove();
-	virtual void save();
-	virtual void load();
+	void save();
+	void load();
 
 	void add(MediaFile ^ newFile);
 	void search(String ^ searchStr);
+	void remove(DataGridViewRow ^ currentRow);
 };
 

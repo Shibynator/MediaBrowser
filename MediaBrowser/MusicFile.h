@@ -33,7 +33,6 @@ public:
 	void setGenre(String ^genre);
 	void setDuration(String ^duration);
 
-	virtual void play() override;
-	virtual void edit() override;
+	void edit();
 };
 

@@ -12,17 +12,19 @@ ref class MediaFile
 {
 protected:
 	Dictionary<String^, String^> ^informations = gcnew Dictionary<String^, String^>();
+	Dictionary<String^, bool> ^readonlyinformation = gcnew Dictionary<String^, bool>();
+
 public:
 	static String ^pathKey = "Path";
 	static String ^dateCreationKey = "DateCreated";
 	static String ^dateModifiedKey = "DateModified";
-
 
 public:
 	MediaFile();
 	virtual ~MediaFile();
 
 	Dictionary<String^, String^> ^getInformations();
+	Dictionary<String^, bool> ^getReadonlyinformation();
 	String ^getPath();
 	String ^getDateCreation();
 	String ^getDateModified();
@@ -31,7 +33,6 @@ public:
 	void setDateCreation(String ^dateCreation);
 	void setDateModified(String ^dateModified);
 
-	virtual void play();
-	virtual void edit();
+	void play();
 };
 
