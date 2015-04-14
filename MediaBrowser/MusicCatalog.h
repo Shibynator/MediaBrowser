@@ -13,13 +13,10 @@ private:
 	String ^ const endingMusicMP3 = "\\*.mp3";
 
 public:
-	MusicCatalog();
+	MusicCatalog(String ^ pathSaveName, String ^ pathSaveSchema);
 	virtual ~MusicCatalog();
 
 	virtual void import(String ^ folderPath);
 	virtual MusicFile ^ getFile(DataGridViewRow ^ currentRow);
-
-	virtual void save() override;
-	virtual void load() override;
 };
 

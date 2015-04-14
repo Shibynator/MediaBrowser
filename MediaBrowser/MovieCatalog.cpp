@@ -2,8 +2,10 @@
 #include "MovieFile.h"
 #include "MediaInfoDLL.h"
 
-MovieCatalog::MovieCatalog()
+MovieCatalog::MovieCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
+	: Catalog(pathSaveName, pathSaveSchema)
 {
+	TableName = "movieCatalog";		// needs an name for save and load
 }
 
 MovieCatalog::~MovieCatalog()
@@ -84,11 +86,3 @@ MovieFile ^ MovieCatalog::getFile(DataGridViewRow ^ currentRow)
 	return movieFile;
 }
 
-
-void MovieCatalog::save()
-{
-}
-
-void MovieCatalog::load()
-{
-}

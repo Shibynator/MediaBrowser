@@ -2,9 +2,11 @@
 #include "MusicFile.h"
 #include "MediaInfoDLL.h"
 
-MusicCatalog::MusicCatalog()
+MusicCatalog::MusicCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
+	: Catalog(pathSaveName, pathSaveSchema)
 {
 
+	TableName = "musicCatalog";		// needs an name for save and load
 }
 
 MusicCatalog::~MusicCatalog()
@@ -89,12 +91,4 @@ MusicFile ^ MusicCatalog::getFile(DataGridViewRow ^ currentRow)
 	return musicFile;
 }
 
-
-void MusicCatalog::save()
-{
-}
-
-void MusicCatalog::load()
-{
-}
 

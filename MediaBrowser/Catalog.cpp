@@ -1,8 +1,10 @@
 #include "Catalog.h"
 
 
-Catalog::Catalog()
+Catalog::Catalog(String ^ pathSaveName, String ^ pathSaveSchema)
+	: pathSaveFileCatalog(pathSaveName), pathSaveFileSchema(pathSaveSchema)
 {
+
 }
 
 Catalog::~Catalog()
@@ -19,9 +21,34 @@ void Catalog::getFile()
 
 void Catalog::save()
 {
+	// chech if directory exists, otherwise create it
+	if (!CreateDirectory((wchar_t*)Runtime::InteropServices::Marshal::StringToHGlobalUni(pathSaveDir).ToPointer(), NULL))
+	{
+		// Directory is already exist!
+	}
+	try
+	{
+		WriteXmlSchema(pathSaveDir + "\\" + pathSaveFileSchema);	// save schema
+		WriteXml(pathSaveDir + "\\" + pathSaveFileCatalog);			// Save catalog
+	}
+	catch (...)		// catch all
+	{
+		// error
+	}
 }
+
 void Catalog::load()
 {
+	try
+	{
+		Clear();		// clear datatable (data and schema as well)
+		ReadXmlSchema(pathSaveDir + "\\" + pathSaveFileSchema);	// save schema
+		ReadXml(pathSaveDir + "\\" + pathSaveFileCatalog);	// save data
+	}
+	catch (...)	// catch all
+	{
+		// error
+	}
 }
 
 void Catalog::add(MediaFile ^newFile)
@@ -29,8 +56,10 @@ void Catalog::add(MediaFile ^newFile)
 	//add Columns for new Keys
 	for each (String ^key in newFile->getInformations()->Keys)
 	{
-		if (!Columns->Contains(key)){
+		if (!Columns->Contains(key))
+		{
 			Columns->Add(key);
+			Columns[key]->ReadOnly = newFile->getReadonlyinformation()[key];
 		}
 	}
 

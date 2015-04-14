@@ -2,8 +2,10 @@
 #include "PictureFile.h"
 #include <FreeImage.h>
 
-PictureCatalog::PictureCatalog()
+PictureCatalog::PictureCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
+	: Catalog(pathSaveName, pathSaveSchema)
 {
+	TableName = "pictureCatalog";		// needs an name for save and load
 }
 
 PictureCatalog::~PictureCatalog()
@@ -83,12 +85,3 @@ PictureFile ^ PictureCatalog::getFile(DataGridViewRow ^ currentRow)
 	return pictureFile;
 }
 
-
-
-void PictureCatalog::save()
-{
-}
-
-void PictureCatalog::load()
-{
-}

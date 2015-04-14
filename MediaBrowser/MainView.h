@@ -46,7 +46,10 @@ namespace MediaBrowser {
 	private:	PictureCatalog ^ pictureCatalog;
 	private: System::Windows::Forms::TextBox^  textBoxSearch;
 	private: System::Windows::Forms::Label^  labelSearch;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::ToolStripMenuItem^  katalogeSpeichernToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  katalogeLadenToolStripMenuItem;
+
+
 
 
 
@@ -58,9 +61,9 @@ namespace MediaBrowser {
 		{
 			InitializeComponent();
 
-			musicCatalog = gcnew MusicCatalog();
-			pictureCatalog = gcnew PictureCatalog();
-			movieCatalog = gcnew MovieCatalog();
+			musicCatalog = gcnew MusicCatalog("musicCatalog.xml", "musicSchema.xml");
+			pictureCatalog = gcnew PictureCatalog("pictureCatalog.xml", "pictureSchema.xml");
+			movieCatalog = gcnew MovieCatalog("movieCatalog.xml", "movieSchema.xml");
 
 			dataGridViewMusic->DataSource = musicCatalog;
 			dataGridViewPicture->DataSource = pictureCatalog;
@@ -119,7 +122,8 @@ namespace MediaBrowser {
 			this->dataGridViewMovie = (gcnew System::Windows::Forms::DataGridView());
 			this->textBoxSearch = (gcnew System::Windows::Forms::TextBox());
 			this->labelSearch = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->katalogeSpeichernToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->katalogeLadenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->tabControlCatalog->SuspendLayout();
 			this->tabPageMusic->SuspendLayout();
@@ -135,18 +139,18 @@ namespace MediaBrowser {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->dateiToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(2322, 40);
+			this->menuStrip1->Size = System::Drawing::Size(2322, 42);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// dateiToolStripMenuItem
 			// 
-			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->verzeichnissImportierenToolStripMenuItem,
-					this->beendenToolStripMenuItem
+					this->katalogeSpeichernToolStripMenuItem, this->katalogeLadenToolStripMenuItem, this->beendenToolStripMenuItem
 			});
 			this->dateiToolStripMenuItem->Name = L"dateiToolStripMenuItem";
-			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 36);
+			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 38);
 			this->dateiToolStripMenuItem->Text = L"Datei";
 			// 
 			// verzeichnissImportierenToolStripMenuItem
@@ -192,11 +196,13 @@ namespace MediaBrowser {
 			this->dataGridViewMusic->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewMusic->Location = System::Drawing::Point(0, 0);
 			this->dataGridViewMusic->Margin = System::Windows::Forms::Padding(6);
+			this->dataGridViewMusic->MultiSelect = false;
 			this->dataGridViewMusic->Name = L"dataGridViewMusic";
 			this->dataGridViewMusic->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridViewMusic->Size = System::Drawing::Size(1424, 710);
 			this->dataGridViewMusic->TabIndex = 0;
 			this->dataGridViewMusic->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewMusic_CellDoubleClick);
+			this->dataGridViewMusic->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewMusic_CellValueChanged);
 			this->dataGridViewMusic->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainView::dataGridViewMusic_KeyDown);
 			// 
 			// tabPagePicture
@@ -216,6 +222,7 @@ namespace MediaBrowser {
 			this->dataGridViewPicture->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewPicture->Location = System::Drawing::Point(4, 4);
 			this->dataGridViewPicture->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridViewPicture->MultiSelect = false;
 			this->dataGridViewPicture->Name = L"dataGridViewPicture";
 			this->dataGridViewPicture->RowTemplate->Height = 33;
 			this->dataGridViewPicture->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
@@ -240,6 +247,7 @@ namespace MediaBrowser {
 			this->dataGridViewMovie->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewMovie->Location = System::Drawing::Point(4, 4);
 			this->dataGridViewMovie->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridViewMovie->MultiSelect = false;
 			this->dataGridViewMovie->Name = L"dataGridViewMovie";
 			this->dataGridViewMovie->RowTemplate->Height = 33;
 			this->dataGridViewMovie->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
@@ -265,19 +273,25 @@ namespace MediaBrowser {
 			this->labelSearch->TabIndex = 3;
 			this->labelSearch->Text = L"Suchen:";
 			// 
-			// textBox1
+			// katalogeSpeichernToolStripMenuItem
 			// 
-			this->textBox1->Location = System::Drawing::Point(847, 103);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(1085, 31);
-			this->textBox1->TabIndex = 4;
+			this->katalogeSpeichernToolStripMenuItem->Name = L"katalogeSpeichernToolStripMenuItem";
+			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeSpeichernToolStripMenuItem->Text = L"Speichern";
+			this->katalogeSpeichernToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeSpeichernToolStripMenuItem_Click);
+			// 
+			// katalogeLadenToolStripMenuItem
+			// 
+			this->katalogeLadenToolStripMenuItem->Name = L"katalogeLadenToolStripMenuItem";
+			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeLadenToolStripMenuItem->Text = L"Laden";
+			this->katalogeLadenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeLadenToolStripMenuItem_Click);
 			// 
 			// MainView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(2322, 914);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->labelSearch);
 			this->Controls->Add(this->textBoxSearch);
 			this->Controls->Add(this->tabControlCatalog);
@@ -339,7 +353,7 @@ namespace MediaBrowser {
 		pictureCatalog->getFile(this->dataGridViewPicture->CurrentRow)->play();
 	}
 	private: System::Void dataGridViewMovie_CellDoubleClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
-		movieCatalog->getFile(this->dataGridViewMovie->CurrentRow)->play();
+		movieCatalog->getFile (this->dataGridViewMovie->CurrentRow)->play();
 	}
 	private: System::Void dataGridViewMusic_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if (e->KeyCode == Keys::Delete)
@@ -361,6 +375,19 @@ namespace MediaBrowser {
 			movieCatalog->remove(this->dataGridViewMovie->CurrentRow);
 			e->Handled = true;
 		}
+	}
+	private: System::Void dataGridViewMusic_CellValueChanged(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+		musicCatalog->getFile(this->dataGridViewMusic->CurrentRow)->edit();
+	}
+	private: System::Void katalogeLadenToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		musicCatalog->load();
+		pictureCatalog->load();
+		movieCatalog->load();
+	}
+	private: System::Void katalogeSpeichernToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		musicCatalog->save();
+		pictureCatalog->save();
+		movieCatalog->save();
 	}
 };
 }

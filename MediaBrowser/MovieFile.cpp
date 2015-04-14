@@ -8,6 +8,12 @@ MovieFile::MovieFile()
 	informations->Add(resolutionKey, "unbekannt");
 	informations->Add(durationKey, "00:00:00");
 	informations->Add(framerateKey, "unbekannt");
+
+	// config which tags should be editable 
+	readonlyinformation->Add(titleKey, true);
+	readonlyinformation->Add(resolutionKey, true);
+	readonlyinformation->Add(durationKey, true);
+	readonlyinformation->Add(framerateKey, true);
 }
 
 MovieFile::~MovieFile()
@@ -23,7 +29,3 @@ void MovieFile::setTitle(String ^title){ informations[MovieFile::titleKey] = tit
 void MovieFile::setResolution(String ^resolution){ informations[MovieFile::resolutionKey] = resolution; }
 void MovieFile::setDuration(String ^duration){ informations[MovieFile::durationKey] = duration; }
 void MovieFile::setFramerate(String ^framerate){ informations[MovieFile::framerateKey] = framerate; }
-
-void MovieFile::edit()
-{
-}

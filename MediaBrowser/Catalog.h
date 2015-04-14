@@ -10,16 +10,19 @@ using namespace System::Windows::Forms;
 ref class Catalog : public DataTable
 {
 protected:
+	String ^ const pathSaveDir = "C:\\MediaBrowserTest";
+	String ^ pathSaveFileCatalog;
+	String ^ pathSaveFileSchema;
 
 public:
-	Catalog();
+	Catalog(String ^ pathSaveDir, String ^ pathSaveName);
 	virtual ~Catalog();
 
 	virtual void import();
 	virtual void getFile();
 
-	virtual void save();
-	virtual void load();
+	void save();
+	void load();
 
 	void add(MediaFile ^ newFile);
 	void search(String ^ searchStr);

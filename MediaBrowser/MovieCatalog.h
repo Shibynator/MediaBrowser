@@ -11,15 +11,14 @@ ref class MovieCatalog : public Catalog
 {
 private:
 	String ^ const endingMovieMP4 = "\\*.mp4";
+	String ^ const pathSaveFileCatalog = "movieCatalog.xml";
+	String ^ const pathSaveFileSchema = "movieSchema.xml";
 
 public:
-	MovieCatalog();
+	MovieCatalog(String ^ pathSaveName, String ^ pathSaveSchema);
 	virtual ~MovieCatalog();
 
 	virtual void import(String ^ folderPath);
 	virtual MovieFile ^ getFile(DataGridViewRow ^ currentRow);
-
-	virtual void save() override;
-	virtual void load() override;
 };
 
