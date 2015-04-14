@@ -1,7 +1,10 @@
 #include "MediaFile.h"
 
+#include "PopUpForm.h"
+
 using namespace System;
 using namespace System::Data;
+using namespace MediaBrowser;
 
 MediaFile::MediaFile()
 {
@@ -31,8 +34,8 @@ void MediaFile::setDateModified(String ^dateModified){ informations[MediaFile::d
 void MediaFile::play()
 {
 	try{ System::Diagnostics::Process::Start(getPath()); }
-	catch(...)		// catch all
+	catch (Exception ^ e)		// catch all
 	{
-		// exception
+		PopUpForm ^ popWindow = gcnew PopUpForm("Fehler", "Abspielen fehlgeschlagen. Eine Exception ist aufgetreten.", "Exception: " + e->Message);
 	}
 }

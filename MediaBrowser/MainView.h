@@ -50,7 +50,7 @@ namespace MediaBrowser {
 	private: System::Windows::Forms::Label^  labelSearch;
 	private: System::Windows::Forms::ToolStripMenuItem^  katalogeSpeichernToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  katalogeLadenToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  testToolStripMenuItem;
+
 
 
 
@@ -112,6 +112,10 @@ namespace MediaBrowser {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle21 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle22 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle23 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle24 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->dateiToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->verzeichnissImportierenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -127,7 +131,6 @@ namespace MediaBrowser {
 			this->dataGridViewMovie = (gcnew System::Windows::Forms::DataGridView());
 			this->textBoxSearch = (gcnew System::Windows::Forms::TextBox());
 			this->labelSearch = (gcnew System::Windows::Forms::Label());
-			this->testToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->tabControlCatalog->SuspendLayout();
 			this->tabPageMusic->SuspendLayout();
@@ -140,25 +143,29 @@ namespace MediaBrowser {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::Color::MidnightBlue;
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->dateiToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(2322, 42);
+			this->menuStrip1->Size = System::Drawing::Size(1894, 42);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// dateiToolStripMenuItem
 			// 
-			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->verzeichnissImportierenToolStripMenuItem,
-					this->katalogeSpeichernToolStripMenuItem, this->katalogeLadenToolStripMenuItem, this->beendenToolStripMenuItem, this->testToolStripMenuItem
+					this->katalogeSpeichernToolStripMenuItem, this->katalogeLadenToolStripMenuItem, this->beendenToolStripMenuItem
 			});
+			this->dateiToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->dateiToolStripMenuItem->Name = L"dateiToolStripMenuItem";
 			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 38);
 			this->dateiToolStripMenuItem->Text = L"Datei";
 			// 
 			// verzeichnissImportierenToolStripMenuItem
 			// 
+			this->verzeichnissImportierenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
+			this->verzeichnissImportierenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->verzeichnissImportierenToolStripMenuItem->Name = L"verzeichnissImportierenToolStripMenuItem";
 			this->verzeichnissImportierenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
 			this->verzeichnissImportierenToolStripMenuItem->Text = L"Verzeichniss importieren...";
@@ -166,6 +173,8 @@ namespace MediaBrowser {
 			// 
 			// katalogeSpeichernToolStripMenuItem
 			// 
+			this->katalogeSpeichernToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
+			this->katalogeSpeichernToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->katalogeSpeichernToolStripMenuItem->Name = L"katalogeSpeichernToolStripMenuItem";
 			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(368, 36);
 			this->katalogeSpeichernToolStripMenuItem->Text = L"Speichern";
@@ -173,6 +182,8 @@ namespace MediaBrowser {
 			// 
 			// katalogeLadenToolStripMenuItem
 			// 
+			this->katalogeLadenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
+			this->katalogeLadenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->katalogeLadenToolStripMenuItem->Name = L"katalogeLadenToolStripMenuItem";
 			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
 			this->katalogeLadenToolStripMenuItem->Text = L"Laden";
@@ -180,6 +191,8 @@ namespace MediaBrowser {
 			// 
 			// beendenToolStripMenuItem
 			// 
+			this->beendenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
+			this->beendenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->beendenToolStripMenuItem->Name = L"beendenToolStripMenuItem";
 			this->beendenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
 			this->beendenToolStripMenuItem->Text = L"Beenden";
@@ -187,6 +200,9 @@ namespace MediaBrowser {
 			// 
 			// tabControlCatalog
 			// 
+			this->tabControlCatalog->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->tabControlCatalog->Controls->Add(this->tabPageMusic);
 			this->tabControlCatalog->Controls->Add(this->tabPagePicture);
 			this->tabControlCatalog->Controls->Add(this->tabPageMovie);
@@ -194,30 +210,58 @@ namespace MediaBrowser {
 			this->tabControlCatalog->Margin = System::Windows::Forms::Padding(4);
 			this->tabControlCatalog->Name = L"tabControlCatalog";
 			this->tabControlCatalog->SelectedIndex = 0;
-			this->tabControlCatalog->Size = System::Drawing::Size(1476, 760);
+			this->tabControlCatalog->Size = System::Drawing::Size(1861, 890);
 			this->tabControlCatalog->TabIndex = 1;
 			// 
 			// tabPageMusic
 			// 
+			this->tabPageMusic->BackColor = System::Drawing::Color::Transparent;
 			this->tabPageMusic->Controls->Add(this->dataGridViewMusic);
+			this->tabPageMusic->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->tabPageMusic->Location = System::Drawing::Point(4, 34);
 			this->tabPageMusic->Margin = System::Windows::Forms::Padding(4);
 			this->tabPageMusic->Name = L"tabPageMusic";
 			this->tabPageMusic->Padding = System::Windows::Forms::Padding(4);
-			this->tabPageMusic->Size = System::Drawing::Size(1468, 722);
+			this->tabPageMusic->Size = System::Drawing::Size(1853, 852);
 			this->tabPageMusic->TabIndex = 0;
 			this->tabPageMusic->Text = L"Musik";
-			this->tabPageMusic->UseVisualStyleBackColor = true;
 			// 
 			// dataGridViewMusic
 			// 
+			this->dataGridViewMusic->AllowUserToAddRows = false;
+			this->dataGridViewMusic->AllowUserToDeleteRows = false;
+			this->dataGridViewMusic->AllowUserToResizeRows = false;
+			this->dataGridViewMusic->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewMusic->BackgroundColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle21->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle21->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle21->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle21->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle21->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle21->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewMusic->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
 			this->dataGridViewMusic->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle22->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle22->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle22->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle22->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle22->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle22->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewMusic->DefaultCellStyle = dataGridViewCellStyle22;
+			this->dataGridViewMusic->GridColor = System::Drawing::Color::DodgerBlue;
 			this->dataGridViewMusic->Location = System::Drawing::Point(0, 0);
-			this->dataGridViewMusic->Margin = System::Windows::Forms::Padding(6);
+			this->dataGridViewMusic->Margin = System::Windows::Forms::Padding(0);
 			this->dataGridViewMusic->MultiSelect = false;
 			this->dataGridViewMusic->Name = L"dataGridViewMusic";
+			this->dataGridViewMusic->RowHeadersWidth = 20;
 			this->dataGridViewMusic->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridViewMusic->Size = System::Drawing::Size(1424, 710);
+			this->dataGridViewMusic->Size = System::Drawing::Size(1857, 852);
 			this->dataGridViewMusic->TabIndex = 0;
 			this->dataGridViewMusic->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewMusic_CellDoubleClick);
 			this->dataGridViewMusic->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewMusic_CellValueChanged);
@@ -225,92 +269,126 @@ namespace MediaBrowser {
 			// 
 			// tabPagePicture
 			// 
+			this->tabPagePicture->BackColor = System::Drawing::Color::Transparent;
 			this->tabPagePicture->Controls->Add(this->dataGridViewPicture);
+			this->tabPagePicture->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->tabPagePicture->Location = System::Drawing::Point(4, 34);
 			this->tabPagePicture->Margin = System::Windows::Forms::Padding(4);
 			this->tabPagePicture->Name = L"tabPagePicture";
 			this->tabPagePicture->Padding = System::Windows::Forms::Padding(4);
-			this->tabPagePicture->Size = System::Drawing::Size(1468, 722);
+			this->tabPagePicture->Size = System::Drawing::Size(1853, 852);
 			this->tabPagePicture->TabIndex = 1;
 			this->tabPagePicture->Text = L"Bilder";
-			this->tabPagePicture->UseVisualStyleBackColor = true;
 			// 
 			// dataGridViewPicture
 			// 
+			this->dataGridViewPicture->AllowUserToAddRows = false;
+			this->dataGridViewPicture->AllowUserToDeleteRows = false;
+			this->dataGridViewPicture->AllowUserToResizeRows = false;
+			this->dataGridViewPicture->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewPicture->BackgroundColor = System::Drawing::Color::MidnightBlue;
 			this->dataGridViewPicture->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridViewPicture->Location = System::Drawing::Point(4, 4);
-			this->dataGridViewPicture->Margin = System::Windows::Forms::Padding(4);
+			dataGridViewCellStyle23->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle23->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle23->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle23->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle23->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle23->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewPicture->DefaultCellStyle = dataGridViewCellStyle23;
+			this->dataGridViewPicture->GridColor = System::Drawing::Color::DodgerBlue;
+			this->dataGridViewPicture->Location = System::Drawing::Point(0, 0);
+			this->dataGridViewPicture->Margin = System::Windows::Forms::Padding(0);
 			this->dataGridViewPicture->MultiSelect = false;
 			this->dataGridViewPicture->Name = L"dataGridViewPicture";
-			this->dataGridViewPicture->RowTemplate->Height = 33;
+			this->dataGridViewPicture->RowHeadersWidth = 20;
 			this->dataGridViewPicture->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridViewPicture->Size = System::Drawing::Size(2184, 713);
+			this->dataGridViewPicture->Size = System::Drawing::Size(1857, 852);
 			this->dataGridViewPicture->TabIndex = 1;
 			this->dataGridViewPicture->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewPicture_CellDoubleClick);
 			this->dataGridViewPicture->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainView::dataGridViewPicture_KeyDown);
 			// 
 			// tabPageMovie
 			// 
+			this->tabPageMovie->BackColor = System::Drawing::Color::Transparent;
 			this->tabPageMovie->Controls->Add(this->dataGridViewMovie);
+			this->tabPageMovie->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->tabPageMovie->Location = System::Drawing::Point(4, 34);
 			this->tabPageMovie->Margin = System::Windows::Forms::Padding(4);
 			this->tabPageMovie->Name = L"tabPageMovie";
-			this->tabPageMovie->Size = System::Drawing::Size(1468, 722);
+			this->tabPageMovie->Size = System::Drawing::Size(1853, 852);
 			this->tabPageMovie->TabIndex = 2;
 			this->tabPageMovie->Text = L"Videos";
-			this->tabPageMovie->UseVisualStyleBackColor = true;
 			// 
 			// dataGridViewMovie
 			// 
+			this->dataGridViewMovie->AllowUserToAddRows = false;
+			this->dataGridViewMovie->AllowUserToDeleteRows = false;
+			this->dataGridViewMovie->AllowUserToResizeRows = false;
+			this->dataGridViewMovie->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewMovie->BackgroundColor = System::Drawing::Color::MidnightBlue;
 			this->dataGridViewMovie->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridViewMovie->Location = System::Drawing::Point(4, 4);
-			this->dataGridViewMovie->Margin = System::Windows::Forms::Padding(4);
+			dataGridViewCellStyle24->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle24->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle24->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle24->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle24->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle24->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewMovie->DefaultCellStyle = dataGridViewCellStyle24;
+			this->dataGridViewMovie->GridColor = System::Drawing::Color::DodgerBlue;
+			this->dataGridViewMovie->Location = System::Drawing::Point(0, 0);
+			this->dataGridViewMovie->Margin = System::Windows::Forms::Padding(0);
 			this->dataGridViewMovie->MultiSelect = false;
 			this->dataGridViewMovie->Name = L"dataGridViewMovie";
-			this->dataGridViewMovie->RowTemplate->Height = 33;
+			this->dataGridViewMovie->RowHeadersWidth = 20;
 			this->dataGridViewMovie->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridViewMovie->Size = System::Drawing::Size(2188, 715);
+			this->dataGridViewMovie->Size = System::Drawing::Size(1857, 852);
 			this->dataGridViewMovie->TabIndex = 1;
 			this->dataGridViewMovie->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainView::dataGridViewMovie_CellDoubleClick);
 			this->dataGridViewMovie->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainView::dataGridViewMovie_KeyDown);
 			// 
 			// textBoxSearch
 			// 
+			this->textBoxSearch->BackColor = System::Drawing::Color::MidnightBlue;
+			this->textBoxSearch->ForeColor = System::Drawing::Color::White;
 			this->textBoxSearch->Location = System::Drawing::Point(117, 62);
 			this->textBoxSearch->Name = L"textBoxSearch";
-			this->textBoxSearch->Size = System::Drawing::Size(1085, 31);
+			this->textBoxSearch->Size = System::Drawing::Size(391, 31);
 			this->textBoxSearch->TabIndex = 2;
 			this->textBoxSearch->TextChanged += gcnew System::EventHandler(this, &MainView::textBox1_TextChanged);
 			// 
 			// labelSearch
 			// 
 			this->labelSearch->AutoSize = true;
+			this->labelSearch->ForeColor = System::Drawing::Color::White;
 			this->labelSearch->Location = System::Drawing::Point(20, 65);
 			this->labelSearch->Name = L"labelSearch";
 			this->labelSearch->Size = System::Drawing::Size(91, 25);
 			this->labelSearch->TabIndex = 3;
 			this->labelSearch->Text = L"Suchen:";
 			// 
-			// testToolStripMenuItem
-			// 
-			this->testToolStripMenuItem->Name = L"testToolStripMenuItem";
-			this->testToolStripMenuItem->Size = System::Drawing::Size(368, 36);
-			this->testToolStripMenuItem->Text = L"test";
-			this->testToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::testToolStripMenuItem_Click);
-			// 
 			// MainView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(2322, 914);
+			this->BackColor = System::Drawing::Color::DodgerBlue;
+			this->ClientSize = System::Drawing::Size(1894, 1009);
 			this->Controls->Add(this->labelSearch);
 			this->Controls->Add(this->textBoxSearch);
 			this->Controls->Add(this->tabControlCatalog);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Margin = System::Windows::Forms::Padding(4);
+			this->MinimumSize = System::Drawing::Size(1024, 768);
 			this->Name = L"MainView";
-			this->Text = L"MainView";
+			this->Text = L"MediaBrowser";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->tabControlCatalog->ResumeLayout(false);
@@ -399,9 +477,6 @@ namespace MediaBrowser {
 		musicCatalog->save();
 		pictureCatalog->save();
 		movieCatalog->save();
-	}
-	private: System::Void testToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-		PopUpForm ^ popWindow = gcnew PopUpForm("Fehler!", "Der Fehler", "Ein Fehler ist aufgetreten");
 	}
 };
 }

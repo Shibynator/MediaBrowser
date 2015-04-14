@@ -99,7 +99,7 @@ namespace MediaBrowser {
 			// buttonOK
 			// 
 			this->buttonOK->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->buttonOK->Location = System::Drawing::Point(230, 161);
+			this->buttonOK->Location = System::Drawing::Point(373, 172);
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(137, 45);
 			this->buttonOK->TabIndex = 2;
@@ -111,12 +111,12 @@ namespace MediaBrowser {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(591, 218);
+			this->ClientSize = System::Drawing::Size(874, 229);
 			this->Controls->Add(this->buttonOK);
 			this->Controls->Add(this->labelError);
 			this->Controls->Add(this->labelTitle);
-			this->MaximumSize = System::Drawing::Size(617, 289);
-			this->MinimumSize = System::Drawing::Size(617, 289);
+			this->MaximumSize = System::Drawing::Size(900, 300);
+			this->MinimumSize = System::Drawing::Size(900, 300);
 			this->Name = L"PopUpForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"PopUpForm";
