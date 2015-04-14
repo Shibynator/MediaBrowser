@@ -17,6 +17,7 @@ public:
 	virtual ~MusicCatalog();
 
 	virtual void import(String ^ folderPath);
-	virtual MusicFile ^ getFile(DataGridViewRow ^ currentRow);
+
+	MusicFile ^ getFile(DataGridViewRow ^ currentRow);
 };
 

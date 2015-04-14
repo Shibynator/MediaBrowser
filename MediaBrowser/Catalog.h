@@ -26,6 +26,7 @@ public:
 
 		return newFile;
 	}
+
 protected:
 	String ^ const pathSaveDir = "C:\\MediaBrowserTest";
 	String ^ pathSaveFileCatalog;
@@ -36,7 +37,6 @@ public:
 	virtual ~Catalog();
 
 	virtual void import();
-	virtual void getFile();
 
 	void save();
 	void load();

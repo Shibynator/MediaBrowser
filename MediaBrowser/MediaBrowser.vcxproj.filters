@@ -63,6 +63,9 @@
     <ClCompile Include="PictureCatalog.cpp">
       <Filter>Quelldateien\Katalog</Filter>
     </ClCompile>
+    <ClCompile Include="PopUpForm.cpp">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainView.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="MediaInfo\Developers\Source\MediaInfoDLL\MediaInfoDLL_Static.h">
       <Filter>Headerdateien\MediaInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="PopUpForm.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

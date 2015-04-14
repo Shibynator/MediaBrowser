@@ -19,6 +19,7 @@ public:
 	virtual ~MovieCatalog();
 
 	virtual void import(String ^ folderPath);
-	virtual MovieFile ^ getFile(DataGridViewRow ^ currentRow);
+
+	MovieFile ^ getFile(DataGridViewRow ^ currentRow);
 };
 

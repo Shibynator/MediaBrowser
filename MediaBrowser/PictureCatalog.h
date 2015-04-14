@@ -19,6 +19,7 @@ public:
 	virtual ~PictureCatalog();
 
 	virtual void import(String ^ folderPath);
-	virtual PictureFile ^ getFile(DataGridViewRow ^ currentRow);
+
+	PictureFile ^ getFile(DataGridViewRow ^ currentRow);
 };
 

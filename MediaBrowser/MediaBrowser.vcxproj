@@ -98,6 +98,7 @@
     <ClCompile Include="MusicFile.cpp" />
     <ClCompile Include="PictureCatalog.cpp" />
     <ClCompile Include="PictureFile.cpp" />
+    <ClCompile Include="PopUpForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.h" />
@@ -131,6 +132,9 @@
     <ClInclude Include="MusicFile.h" />
     <ClInclude Include="PictureCatalog.h" />
     <ClInclude Include="PictureFile.h" />
+    <ClInclude Include="PopUpForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainView.resx">
@@ -139,6 +143,9 @@
     <EmbeddedResource Include="MediaInfo\Developers\Project\MSJS\Example\HowToUse_Dll.resx" />
     <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\HowToUse_Dll.resx" />
     <EmbeddedResource Include="MediaInfo\Developers\Project\MSVB\Example\My Project\Resources.resx" />
+    <EmbeddedResource Include="PopUpForm.resx">
+      <DependentUpon>PopUpForm.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

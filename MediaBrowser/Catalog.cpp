@@ -1,10 +1,8 @@
 #include "Catalog.h"
 
-
 Catalog::Catalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	: pathSaveFileCatalog(pathSaveName), pathSaveFileSchema(pathSaveSchema)
 {
-
 }
 
 Catalog::~Catalog()
@@ -12,10 +10,6 @@ Catalog::~Catalog()
 }
 
 void Catalog::import()
-{
-}
-
-void Catalog::getFile()
 {
 }
 
@@ -27,12 +21,12 @@ void Catalog::save()
 		// Directory is already exist!
 	}
 	try
-{
-		WriteXmlSchema(pathSaveDir + "\\" + pathSaveFileSchema);	// save schema
-		WriteXml(pathSaveDir + "\\" + pathSaveFileCatalog);			// Save catalog
-}
+	{
+			WriteXmlSchema(pathSaveDir + "\\" + pathSaveFileSchema);	// save schema
+			WriteXml(pathSaveDir + "\\" + pathSaveFileCatalog);			// Save catalog
+	}
 	catch (...)		// catch all
-{
+	{
 		// error
 	}
 }

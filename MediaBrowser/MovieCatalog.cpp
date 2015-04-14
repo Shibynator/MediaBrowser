@@ -72,17 +72,6 @@ void MovieCatalog::import(String ^ folderPath)
 
 MovieFile ^ MovieCatalog::getFile(DataGridViewRow ^ currentRow)
 {
-	DataRow ^ drow = safe_cast<DataRowView ^>(currentRow->DataBoundItem)->Row;
-
-	MovieFile ^ movieFile = gcnew MovieFile();
-	movieFile->setPath(drow[MovieFile::pathKey]->ToString());
-	movieFile->setDateCreation(drow[MovieFile::dateCreationKey]->ToString());
-	movieFile->setDateModified(drow[MovieFile::dateModifiedKey]->ToString());
-	movieFile->setTitle(drow[MovieFile::titleKey]->ToString());
-	movieFile->setResolution(drow[MovieFile::resolutionKey]->ToString());
-	movieFile->setDuration(drow[MovieFile::durationKey]->ToString());
-	movieFile->setFramerate(drow[MovieFile::framerateKey]->ToString());
-
-	return movieFile;
+	return Catalog::getFileFromRow<MovieFile^>(currentRow);
 }
 

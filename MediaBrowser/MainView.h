@@ -16,6 +16,8 @@
 
 #include "MediaInfoDLL.h"
 
+#include "PopUpForm.h"
+
 namespace MediaBrowser {
 
 	using namespace System;
@@ -48,6 +50,7 @@ namespace MediaBrowser {
 	private: System::Windows::Forms::Label^  labelSearch;
 	private: System::Windows::Forms::ToolStripMenuItem^  katalogeSpeichernToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  katalogeLadenToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  testToolStripMenuItem;
 
 
 
@@ -112,6 +115,8 @@ namespace MediaBrowser {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->dateiToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->verzeichnissImportierenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->katalogeSpeichernToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->katalogeLadenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->beendenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tabControlCatalog = (gcnew System::Windows::Forms::TabControl());
 			this->tabPageMusic = (gcnew System::Windows::Forms::TabPage());
@@ -122,8 +127,7 @@ namespace MediaBrowser {
 			this->dataGridViewMovie = (gcnew System::Windows::Forms::DataGridView());
 			this->textBoxSearch = (gcnew System::Windows::Forms::TextBox());
 			this->labelSearch = (gcnew System::Windows::Forms::Label());
-			this->katalogeSpeichernToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->katalogeLadenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->testToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->tabControlCatalog->SuspendLayout();
 			this->tabPageMusic->SuspendLayout();
@@ -145,9 +149,9 @@ namespace MediaBrowser {
 			// 
 			// dateiToolStripMenuItem
 			// 
-			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->dateiToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->verzeichnissImportierenToolStripMenuItem,
-					this->katalogeSpeichernToolStripMenuItem, this->katalogeLadenToolStripMenuItem, this->beendenToolStripMenuItem
+					this->katalogeSpeichernToolStripMenuItem, this->katalogeLadenToolStripMenuItem, this->beendenToolStripMenuItem, this->testToolStripMenuItem
 			});
 			this->dateiToolStripMenuItem->Name = L"dateiToolStripMenuItem";
 			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 38);
@@ -159,6 +163,20 @@ namespace MediaBrowser {
 			this->verzeichnissImportierenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
 			this->verzeichnissImportierenToolStripMenuItem->Text = L"Verzeichniss importieren...";
 			this->verzeichnissImportierenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::verzeichnissImportierenToolStripMenuItem_Click);
+			// 
+			// katalogeSpeichernToolStripMenuItem
+			// 
+			this->katalogeSpeichernToolStripMenuItem->Name = L"katalogeSpeichernToolStripMenuItem";
+			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeSpeichernToolStripMenuItem->Text = L"Speichern";
+			this->katalogeSpeichernToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeSpeichernToolStripMenuItem_Click);
+			// 
+			// katalogeLadenToolStripMenuItem
+			// 
+			this->katalogeLadenToolStripMenuItem->Name = L"katalogeLadenToolStripMenuItem";
+			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeLadenToolStripMenuItem->Text = L"Laden";
+			this->katalogeLadenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeLadenToolStripMenuItem_Click);
 			// 
 			// beendenToolStripMenuItem
 			// 
@@ -273,19 +291,12 @@ namespace MediaBrowser {
 			this->labelSearch->TabIndex = 3;
 			this->labelSearch->Text = L"Suchen:";
 			// 
-			// katalogeSpeichernToolStripMenuItem
+			// testToolStripMenuItem
 			// 
-			this->katalogeSpeichernToolStripMenuItem->Name = L"katalogeSpeichernToolStripMenuItem";
-			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(368, 36);
-			this->katalogeSpeichernToolStripMenuItem->Text = L"Speichern";
-			this->katalogeSpeichernToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeSpeichernToolStripMenuItem_Click);
-			// 
-			// katalogeLadenToolStripMenuItem
-			// 
-			this->katalogeLadenToolStripMenuItem->Name = L"katalogeLadenToolStripMenuItem";
-			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
-			this->katalogeLadenToolStripMenuItem->Text = L"Laden";
-			this->katalogeLadenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeLadenToolStripMenuItem_Click);
+			this->testToolStripMenuItem->Name = L"testToolStripMenuItem";
+			this->testToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->testToolStripMenuItem->Text = L"test";
+			this->testToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::testToolStripMenuItem_Click);
 			// 
 			// MainView
 			// 
@@ -388,6 +399,9 @@ namespace MediaBrowser {
 		musicCatalog->save();
 		pictureCatalog->save();
 		movieCatalog->save();
+	}
+	private: System::Void testToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		PopUpForm ^ popWindow = gcnew PopUpForm("Fehler!", "Der Fehler", "Ein Fehler ist aufgetreten");
 	}
 };
 }
