@@ -60,3 +60,4 @@ void Catalog::search(String ^ searchStr)
 	filterStr = filterStr->Remove(filterStr->Length - 3);	// remove last "OR"
 	DefaultView->RowFilter = filterStr;
 }
+

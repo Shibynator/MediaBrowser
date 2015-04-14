@@ -5,10 +5,27 @@
 
 using namespace System;
 using namespace System::Data;
+using namespace System::Windows::Forms;
 
 ref class Catalog : public DataTable
 {
-protected:
+
+public:
+	generic <typename T>  where T : MediaFile,ref class
+		T getFileFromRow(DataGridViewRow ^ currentRow)
+	{				
+		T newFile = Activator::CreateInstance<T>();
+		
+		DataRow ^ drow = safe_cast<DataRowView ^>(currentRow->DataBoundItem)->Row;
+
+		//map file with all avaible informations
+		for each (DataColumn ^column in drow->Table->Columns)
+		{
+			newFile->getInformations()[column->ToString()] = drow[column->ToString()]->ToString();
+		}
+
+		return newFile;
+	}
 
 public:
 	Catalog();
