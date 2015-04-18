@@ -51,15 +51,16 @@ void PictureCatalog::import(String ^ folderPath)
 				pictureFile->setDateCreation(strDateCreation);
 				pictureFile->setDateModified(strDateModified);
 
-				pictureFile->setTitle("didel");
+				/*pictureFile->setTitle("didel");
 				pictureFile->setResolution("dadel");
 				pictureFile->setFstop("dudel");
 				pictureFile->setExposuretime("da");
-				pictureFile->setISO("!!!");
+				pictureFile->setISO("!!!");*/
+
+				pictureFile->mapInformations(folderPath + "\\" + strFilename, FIMD_EXIF_MAIN);
 
 				add(pictureFile);
 
-				delete pictureFile;
 				fclose(file);
 			}
 		} while (FindNextFile(hFind, &FindFileData));

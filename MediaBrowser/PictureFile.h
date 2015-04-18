@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MediaFile.h"
+#include <FreeImage.h>
 
 using namespace System;
 
@@ -28,5 +29,6 @@ public:
 	void setFstop(String ^fstop);
 	void setExposuretime(String ^exposuretime);
 	void setISO(String ^iso);
+	void mapInformations(String ^path,FREE_IMAGE_MDMODEL informationModel);
 };
 

@@ -57,7 +57,15 @@ void Catalog::add(MediaFile ^newFile)
 		if (!Columns->Contains(key))
 		{
 			Columns->Add(key);
-			Columns[key]->ReadOnly = newFile->getReadonlyinformation()[key];
+
+			if (newFile->getReadonlyinformation()->ContainsKey(key))
+			{
+				Columns[key]->ReadOnly = newFile->getReadonlyinformation()[key];
+			}
+			else
+			{
+				Columns[key]->ReadOnly = TRUE;
+			}
 		}
 	}
 
