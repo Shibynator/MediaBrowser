@@ -145,7 +145,7 @@ String ^ MediaFile::getDateModified()
 Method      :	setPath()
 Function    :	sets the path to the file on the filesystem
 Type        :	global
-Input Para  :	String			the path to the file
+Input Para  :	path			the path to the file
 Output Para :	none
 Author      :	Matthias Stalder
 				Daniel Ziörjen
@@ -160,7 +160,7 @@ void MediaFile::setPath(String ^path)
 Method      :	setDateCreation()
 Function    :	sets the date of creation attribut
 Type        :	global
-Input Para  :	String			date of creation
+Input Para  :	dateCreation			date of creation
 Output Para :	none
 Author      :	Matthias Stalder
 				Daniel Ziörjen
@@ -175,7 +175,7 @@ void MediaFile::setDateCreation(String ^dateCreation)
 Method      :	setDateModified()
 Function    :	sets the date modified attribut
 Type        :	global
-Input Para  :	String			date modified
+Input Para  :	dateModified			date modified
 Output Para :	none
 Author      :	Matthias Stalder
 				Daniel Ziörjen

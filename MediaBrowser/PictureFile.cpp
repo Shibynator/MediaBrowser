@@ -1,38 +1,69 @@
+/***************************************************************************
+Header     :	PictureFile                                      Version 1.0
+****************************************************************************
+
+Function   :	This class implements a PictureFile
+
+Methodes   :	PictureFile()
+				~PictureFile()
+				mapInformations()
+
+Author     :	Matthias Stalder
+Daniel Ziörjen
+
+History    :	21.04.2015
+
+File       :	PictureFile.cpp
+
+*****************************************************************************/
+
+/* imports					   */
 #include "PictureFile.h"
 #include <vcclr.h>
 
+/* namespaces				   */
 using namespace Runtime::InteropServices;
 using namespace System;
 
+/****************************************************************************
+Method      :	PictureFile()
+Function    :	Constructor for the PictureFile-class
+Type        :	Constructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 PictureFile::PictureFile()
 {
-	// TODO: fil dictonary
-
-	// config which tags should be editable 
-	/*
-	readonlyinformation->Add(titleKey, true);
-	readonlyinformation->Add(resolutionKey, true);
-	readonlyinformation->Add(fstopKey, true);
-	readonlyinformation->Add(exposuretimeKey, true);
-	readonlyinformation->Add(isoKey, true); */
 }
 
+/****************************************************************************
+Method      :	~PictureFile()
+Function    :	Destructor for the PictureFile-class
+Type        :	Destructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 PictureFile::~PictureFile()
 {
 }
-/*
-String ^ PictureFile::getTitle(){ return informations[titleKey]; }
-String ^ PictureFile::getResolution(){ return informations[resolutionKey]; }
-String ^ PictureFile::getFstop(){ return informations[fstopKey]; }
-String ^ PictureFile::getExposuretime(){ return informations[exposuretimeKey]; }
-String ^ PictureFile::getISO(){ return informations[isoKey]; }
 
-void PictureFile::setTitle(String ^title){ informations[PictureFile::titleKey] = title; }
-void PictureFile::setResolution(String ^resolution){ informations[PictureFile::resolutionKey] = resolution; }
-void PictureFile::setFstop(String ^fstop){ informations[PictureFile::fstopKey] = fstop; }
-void PictureFile::setExposuretime(String ^exposuretime){ informations[PictureFile::exposuretimeKey] = exposuretime; }
-void PictureFile::setISO(String ^iso){ informations[PictureFile::isoKey] = iso; }
-*/
+/****************************************************************************
+Method      :	getTitle()
+Function    :	returns the title
+Type        :	global
+Input Para  :	path				path to the picturefile on the filesystem
+				informationModel	type of data to be read
+Output Para :	none
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void PictureFile::mapInformations(String ^path, FREE_IMAGE_MDMODEL informationModel)
 {
 	FITAG *tag = NULL;
