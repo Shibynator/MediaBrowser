@@ -1,17 +1,70 @@
+/***************************************************************************
+Header     :	PictureCatalog                                    Version 1.0
+****************************************************************************
+
+Function   :	This class implements a picturecatalog. it derived from the
+				abstract baseclass catalog.
+
+Methodes   :	PictureCatalog()
+				~PictureCatalog()
+				import()
+				getFile()
+
+Author     :	Matthias Stalder
+Daniel Ziörjen
+
+History    :	21.04.2015
+
+File       :	PictureCatalog.cpp
+
+*****************************************************************************/
+
+/* imports					   */
 #include "PictureCatalog.h"
 #include "PictureFile.h"
 #include <FreeImage.h>
 
+/****************************************************************************
+Method      :	PictureCatalog()
+Function    :	Constructor for the picturecatalog-class
+Type        :	Constructor
+Input Para  :	pathSaveName		name of the data savefile
+p				athSaveSchema		name of the schema savefile
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 PictureCatalog::PictureCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	: Catalog(pathSaveName, pathSaveSchema)
 {
 	TableName = "pictureCatalog";		// needs an name for save and load
 }
 
+/****************************************************************************
+Method      :	~PictureCatalog()
+Function    :	Destructor for the picturecatalog-class
+Type        :	Destructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 PictureCatalog::~PictureCatalog()
 {
 }
 
+/****************************************************************************
+Method      :	import()
+Function    :	imports new data to the catalog
+Type        :	global
+Input Para  :	folderPath			the path to the new data
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void PictureCatalog::import(String ^ folderPath)
 {
 	WIN32_FIND_DATA FindFileData;
@@ -51,13 +104,7 @@ void PictureCatalog::import(String ^ folderPath)
 				pictureFile->setDateCreation(strDateCreation);
 				pictureFile->setDateModified(strDateModified);
 
-				/*pictureFile->setTitle("didel");
-				pictureFile->setResolution("dadel");
-				pictureFile->setFstop("dudel");
-				pictureFile->setExposuretime("da");
-				pictureFile->setISO("!!!");*/
-
-				pictureFile->mapInformations(folderPath + "\\" + strFilename, FIMD_EXIF_MAIN);
+				pictureFile->mapInformations(folderPath + "\\" + strFilename, FIMD_EXIF_EXIF);
 
 				add(pictureFile);
 
@@ -69,6 +116,17 @@ void PictureCatalog::import(String ^ folderPath)
 	}
 }
 
+/****************************************************************************
+Method      :	getFile()
+Function    :	convertes the data in a row to a PictureFile. Therefore it 
+				uses the template getFileFromRow().
+Type        :	global
+Input Para  :	currentRow		the row which should be converted
+Output Para :	PictureFile		the generated MusicFile
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 PictureFile ^ PictureCatalog::getFile(DataGridViewRow ^ currentRow)
 {
 	return Catalog::getFileFromRow<PictureFile^>(currentRow);

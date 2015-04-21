@@ -9,17 +9,18 @@ PictureFile::PictureFile()
 	// TODO: fil dictonary
 
 	// config which tags should be editable 
+	/*
 	readonlyinformation->Add(titleKey, true);
 	readonlyinformation->Add(resolutionKey, true);
 	readonlyinformation->Add(fstopKey, true);
 	readonlyinformation->Add(exposuretimeKey, true);
-	readonlyinformation->Add(isoKey, true);
+	readonlyinformation->Add(isoKey, true); */
 }
 
 PictureFile::~PictureFile()
 {
 }
-
+/*
 String ^ PictureFile::getTitle(){ return informations[titleKey]; }
 String ^ PictureFile::getResolution(){ return informations[resolutionKey]; }
 String ^ PictureFile::getFstop(){ return informations[fstopKey]; }
@@ -31,9 +32,9 @@ void PictureFile::setResolution(String ^resolution){ informations[PictureFile::r
 void PictureFile::setFstop(String ^fstop){ informations[PictureFile::fstopKey] = fstop; }
 void PictureFile::setExposuretime(String ^exposuretime){ informations[PictureFile::exposuretimeKey] = exposuretime; }
 void PictureFile::setISO(String ^iso){ informations[PictureFile::isoKey] = iso; }
-
-void PictureFile::mapInformations(String ^path, FREE_IMAGE_MDMODEL informationModel){
-
+*/
+void PictureFile::mapInformations(String ^path, FREE_IMAGE_MDMODEL informationModel)
+{
 	FITAG *tag = NULL;
 	FIMETADATA *mdhandle = NULL;
 
@@ -53,7 +54,6 @@ void PictureFile::mapInformations(String ^path, FREE_IMAGE_MDMODEL informationMo
 
 		} while (FreeImage_FindNextMetadata(mdhandle, &tag));
 
-		
 		FreeImage_FindCloseMetadata(mdhandle);
 	}
 }

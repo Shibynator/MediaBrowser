@@ -1,17 +1,70 @@
+/***************************************************************************
+Header     :	MovieCatalog                                    Version 1.0
+****************************************************************************
+
+Function   :	This class implements a moviecatalog. it derived from the
+				abstract baseclass catalog.
+
+Methodes   :	MovieCatalog()
+				~MovieCatalog()
+				import()
+				getFile()
+
+Author     :	Matthias Stalder
+				Daniel Ziörjen
+
+History    :	21.04.2015
+
+File       :	MovieCatalog.cpp
+
+*****************************************************************************/
+
+/* imports					   */
 #include "MovieCatalog.h"
 #include "MovieFile.h"
 #include "MediaInfoDLL.h"
 
+/****************************************************************************
+Method      :	MovieCatalog()
+Function    :	Constructor for the moviecatalog-class
+Type        :	Constructor
+Input Para  :	pathSaveName		name of the data savefile
+				pathSaveSchema		name of the schema savefile
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MovieCatalog::MovieCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	: Catalog(pathSaveName, pathSaveSchema)
 {
 	TableName = "movieCatalog";		// needs an name for save and load
 }
 
+/****************************************************************************
+Method      :	~MovieCatalog()
+Function    :	Destructor for the moviecatalog-class
+Type        :	Destructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MovieCatalog::~MovieCatalog()
 {
 }
 
+/****************************************************************************
+Method      :	import()
+Function    :	imports new data to the catalog
+Type        :	global
+Input Para  :	folderPath			the path to the new data
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void MovieCatalog::import(String ^ folderPath)
 {
 	WIN32_FIND_DATA FindFileData;
@@ -70,6 +123,17 @@ void MovieCatalog::import(String ^ folderPath)
 	}
 }
 
+/****************************************************************************
+Method      :	getFile()
+Function    :	convertes the data in a row to a MovieFile. Therefore it uses
+				the template getFileFromRow().
+Type        :	global
+Input Para  :	currentRow		the row which should be converted
+Output Para :	MovieFile		the generated MusicFile
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MovieFile ^ MovieCatalog::getFile(DataGridViewRow ^ currentRow)
 {
 	return Catalog::getFileFromRow<MovieFile^>(currentRow);

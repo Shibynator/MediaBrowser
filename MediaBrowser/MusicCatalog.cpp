@@ -1,7 +1,40 @@
+/***************************************************************************
+Header     :	MusicCatalog                                    Version 1.0
+****************************************************************************
+
+Function   :	This class implements a musiccatalog. it derived from the
+abstract baseclass catalog.
+
+Methodes   :	MusicCatalog()
+~MusicCatalog()
+import()
+getFile()
+
+Author     :	Matthias Stalder
+Daniel Ziörjen
+
+History    :	21.04.2015
+
+File       :	MusicCatalog.cpp
+
+*****************************************************************************/
+
+/* imports					   */
 #include "MusicCatalog.h"
 #include "MusicFile.h"
 #include "MediaInfoDLL.h"
 
+/****************************************************************************
+Method      :	MusicCatalog()
+Function    :	Constructor for the musiccatalog-class
+Type        :	Constructor
+Input Para  :	pathSaveName		name of the data savefile
+				pathSaveSchema		name of the schema savefile
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MusicCatalog::MusicCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	: Catalog(pathSaveName, pathSaveSchema)
 {
@@ -9,10 +42,30 @@ MusicCatalog::MusicCatalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	TableName = "musicCatalog";		// needs an name for save and load
 }
 
+/****************************************************************************
+Method      :	~MusicCatalog()
+Function    :	Destructor for the musiccatalog-class
+Type        :	Destructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MusicCatalog::~MusicCatalog()
 {
 }
 
+/****************************************************************************
+Method      :	import()
+Function    :	imports new data to the catalog
+Type        :	global
+Input Para  :	folderPath			the path to the new data
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void MusicCatalog::import(String ^ folderPath)
 {
 	WIN32_FIND_DATA FindFileData;
@@ -73,6 +126,17 @@ void MusicCatalog::import(String ^ folderPath)
 	}
 }
 
+/****************************************************************************
+Method      :	getFile()
+Function    :	convertes the data in a row to a MusicFile. Therefore it uses
+				the template getFileFromRow().
+Type        :	global
+Input Para  :	currentRow		the row which should be converted
+Output Para :	MusicFile		the generated MusicFile
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 MusicFile ^ MusicCatalog::getFile(DataGridViewRow ^ currentRow)
 {
 	return Catalog::getFileFromRow<MusicFile^>(currentRow);

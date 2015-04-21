@@ -1,22 +1,74 @@
-#include "Catalog.h"
+/***************************************************************************
+Header     :	Catalog                                      Version 1.0
+****************************************************************************
 
+Function   :	This class implements a generic catalog
+
+Methodes   :	Catalog()
+				~Catalog()
+				import()
+				save()
+				load()
+				add()
+				search()
+				remove()
+
+Author     :	Matthias Stalder
+				Daniel Ziörjen
+
+History    :	21.04.2015
+
+File       :	Catalog.cpp
+
+*****************************************************************************/
+
+/* imports					   */
+#include "Catalog.h"
 #include "PopUpForm.h"
 
+/* namespaces				   */
 using namespace MediaBrowser;
 
+/****************************************************************************
+Method      :	Catalog()                                                                                                               
+Function    :	Constructor for the catalog-class                                                                                    
+Type        :	Constructor                                                                                                                       
+Input Para  :	pathSaveName		name of the data savefile               
+				pathSaveSchema		name of the schema savefile                                                                                                
+Output Para :	None                                                                                                                                 
+Author      :	Matthias Stalder
+				Daniel Ziörjen                                                                          
+History     :	21.04.2015 created                                                                                                          
+/*****************************************************************************/
 Catalog::Catalog(String ^ pathSaveName, String ^ pathSaveSchema)
 	: pathSaveFileCatalog(pathSaveName), pathSaveFileSchema(pathSaveSchema)
 {
 }
 
+/****************************************************************************
+Method      :	~Catalog()
+Function    :	Destructor for the catalog-class
+Type        :	Destructor
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 Catalog::~Catalog()
 {
 }
 
-void Catalog::import()
-{
-}
-
+/****************************************************************************
+Method      :	save()
+Function    :	saves the data and the schema of the data
+Type        :	global
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void Catalog::save()
 {
 	// chech if directory exists, otherwise create it
@@ -35,6 +87,16 @@ void Catalog::save()
 	}
 }
 
+/****************************************************************************
+Method      :	load()
+Function    :	loads existing data to the catalog
+Type        :	global
+Input Para  :	none
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void Catalog::load()
 {
 	try
@@ -49,6 +111,16 @@ void Catalog::load()
 	}
 }
 
+/****************************************************************************
+Method      :	add()
+Function    :	adds an new file to the catalog. 
+Type        :	global
+Input Para  :	newFile			the file to be added
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void Catalog::add(MediaFile ^newFile)
 {
 	//add Columns for new Keys
@@ -64,6 +136,7 @@ void Catalog::add(MediaFile ^newFile)
 			}
 			else
 			{
+				newFile->getReadonlyinformation()->Add(key, true);		// eigetlich unnötig
 				Columns[key]->ReadOnly = TRUE;
 			}
 		}
@@ -80,6 +153,17 @@ void Catalog::add(MediaFile ^newFile)
 	Rows->Add(newRow);
 }
 
+/****************************************************************************
+Method      :	search()
+Function    :	searchs in every column for the searchStr and filters the
+				displayed data in the dataGridView.
+Type        :	global
+Input Para  :	searchStr			the data filtered with this string
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void Catalog::search(String ^ searchStr)
 {
 	String ^ filterStr;
@@ -99,6 +183,16 @@ void Catalog::search(String ^ searchStr)
 	}
 }
 
+/****************************************************************************
+Method      :	remove()
+Function    :	removes a row from the catalog
+Type        :	global
+Input Para  :	currentRow		the row to be deleted
+Output Para :	None
+Author      :	Matthias Stalder
+				Daniel Ziörjen
+History     :	21.04.2015 created
+/*****************************************************************************/
 void Catalog::remove(DataGridViewRow ^ currentRow)
 {
 	try
@@ -108,6 +202,7 @@ void Catalog::remove(DataGridViewRow ^ currentRow)
 	}
 	catch (Exception ^ e)		// catch all
 	{
-		PopUpForm ^ popWindow = gcnew PopUpForm("Fehler", "Entfernen fehlgeschlagen. Eine Exception ist aufgetreten.", "Exception: " + e->Message);
+		// Popup nur nervend, tritt auf wenn katalog leer
+		// PopUpForm ^ popWindow = gcnew PopUpForm("Fehler", "Entfernen fehlgeschlagen. Eine Exception ist aufgetreten.", "Exception: " + e->Message);
 	}
 }
