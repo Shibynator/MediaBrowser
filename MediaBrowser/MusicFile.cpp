@@ -273,7 +273,6 @@ History     :	21.04.2015 created
 /*****************************************************************************/
 void MusicFile::edit() 
 {
-	// geht noch nicht
 	const char * filename = (const char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(this->getPath()).ToPointer());
 
 	ID3_Tag myTag;
