@@ -104,7 +104,7 @@ void PictureCatalog::import(String ^ folderPath)
 				pictureFile->setDateCreation(strDateCreation);
 				pictureFile->setDateModified(strDateModified);
 
-				pictureFile->mapInformations(folderPath + "\\" + strFilename, FIMD_EXIF_EXIF);
+				pictureFile->mapInformations(folderPath + "\\" + strFilename, FIMD_EXIF_MAIN);	// FIMD_EXIF_EXIF
 
 				add(pictureFile);
 

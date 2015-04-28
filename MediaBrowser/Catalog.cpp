@@ -171,7 +171,7 @@ void Catalog::search(String ^ searchStr)
 	{
 		for each (DataColumn ^ column in Columns)
 		{
-			filterStr += column->ToString() + " LIKE '%" + searchStr + "%' OR ";
+			filterStr += (column->ToString() + " LIKE '%" + searchStr + "%' OR ");
 		}
 		filterStr = filterStr->Remove(filterStr->Length - 3);	// remove last "OR"
 		DefaultView->RowFilter = filterStr;

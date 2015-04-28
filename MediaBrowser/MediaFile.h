@@ -47,6 +47,7 @@ ref class MediaFile
 	protected:
 		Dictionary<String^, String^> ^informations = gcnew Dictionary<String^, String^>();
 		Dictionary<String^, bool> ^readonlyinformation = gcnew Dictionary<String^, bool>();
+
 	public:
 		static String ^ const pathKey = "Path";
 		static String ^ const dateCreationKey = "DateCreated";

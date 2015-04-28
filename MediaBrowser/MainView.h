@@ -112,10 +112,10 @@ namespace MediaBrowser {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle21 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle22 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle23 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle24 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->dateiToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->verzeichnissImportierenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -147,7 +147,7 @@ namespace MediaBrowser {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->dateiToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1894, 42);
+			this->menuStrip1->Size = System::Drawing::Size(1894, 40);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -159,7 +159,7 @@ namespace MediaBrowser {
 			});
 			this->dateiToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->dateiToolStripMenuItem->Name = L"dateiToolStripMenuItem";
-			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 38);
+			this->dateiToolStripMenuItem->Size = System::Drawing::Size(83, 36);
 			this->dateiToolStripMenuItem->Text = L"Datei";
 			// 
 			// verzeichnissImportierenToolStripMenuItem
@@ -167,8 +167,8 @@ namespace MediaBrowser {
 			this->verzeichnissImportierenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
 			this->verzeichnissImportierenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->verzeichnissImportierenToolStripMenuItem->Name = L"verzeichnissImportierenToolStripMenuItem";
-			this->verzeichnissImportierenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
-			this->verzeichnissImportierenToolStripMenuItem->Text = L"Verzeichniss importieren...";
+			this->verzeichnissImportierenToolStripMenuItem->Size = System::Drawing::Size(358, 36);
+			this->verzeichnissImportierenToolStripMenuItem->Text = L"Verzeichnis importieren...";
 			this->verzeichnissImportierenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::verzeichnissImportierenToolStripMenuItem_Click);
 			// 
 			// katalogeSpeichernToolStripMenuItem
@@ -176,7 +176,7 @@ namespace MediaBrowser {
 			this->katalogeSpeichernToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
 			this->katalogeSpeichernToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->katalogeSpeichernToolStripMenuItem->Name = L"katalogeSpeichernToolStripMenuItem";
-			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeSpeichernToolStripMenuItem->Size = System::Drawing::Size(358, 36);
 			this->katalogeSpeichernToolStripMenuItem->Text = L"Speichern";
 			this->katalogeSpeichernToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeSpeichernToolStripMenuItem_Click);
 			// 
@@ -185,7 +185,7 @@ namespace MediaBrowser {
 			this->katalogeLadenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
 			this->katalogeLadenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->katalogeLadenToolStripMenuItem->Name = L"katalogeLadenToolStripMenuItem";
-			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->katalogeLadenToolStripMenuItem->Size = System::Drawing::Size(358, 36);
 			this->katalogeLadenToolStripMenuItem->Text = L"Laden";
 			this->katalogeLadenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::katalogeLadenToolStripMenuItem_Click);
 			// 
@@ -194,7 +194,7 @@ namespace MediaBrowser {
 			this->beendenToolStripMenuItem->BackColor = System::Drawing::Color::MidnightBlue;
 			this->beendenToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->beendenToolStripMenuItem->Name = L"beendenToolStripMenuItem";
-			this->beendenToolStripMenuItem->Size = System::Drawing::Size(368, 36);
+			this->beendenToolStripMenuItem->Size = System::Drawing::Size(358, 36);
 			this->beendenToolStripMenuItem->Text = L"Beenden";
 			this->beendenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainView::beendenToolStripMenuItem_Click);
 			// 
@@ -235,25 +235,25 @@ namespace MediaBrowser {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewMusic->BackgroundColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle21->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle21->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle21->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle21->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle21->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle21->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewMusic->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewMusic->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridViewMusic->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle22->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle22->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle22->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle22->SelectionBackColor = System::Drawing::Color::DodgerBlue;
-			dataGridViewCellStyle22->SelectionForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle22->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewMusic->DefaultCellStyle = dataGridViewCellStyle22;
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewMusic->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridViewMusic->GridColor = System::Drawing::Color::DodgerBlue;
 			this->dataGridViewMusic->Location = System::Drawing::Point(0, 0);
 			this->dataGridViewMusic->Margin = System::Windows::Forms::Padding(0);
@@ -290,15 +290,15 @@ namespace MediaBrowser {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewPicture->BackgroundColor = System::Drawing::Color::MidnightBlue;
 			this->dataGridViewPicture->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle23->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle23->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle23->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle23->SelectionBackColor = System::Drawing::Color::DodgerBlue;
-			dataGridViewCellStyle23->SelectionForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle23->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewPicture->DefaultCellStyle = dataGridViewCellStyle23;
+			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewPicture->DefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridViewPicture->GridColor = System::Drawing::Color::DodgerBlue;
 			this->dataGridViewPicture->Location = System::Drawing::Point(0, 0);
 			this->dataGridViewPicture->Margin = System::Windows::Forms::Padding(0);
@@ -333,15 +333,15 @@ namespace MediaBrowser {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewMovie->BackgroundColor = System::Drawing::Color::MidnightBlue;
 			this->dataGridViewMovie->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle24->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle24->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle24->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle24->SelectionBackColor = System::Drawing::Color::DodgerBlue;
-			dataGridViewCellStyle24->SelectionForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle24->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewMovie->DefaultCellStyle = dataGridViewCellStyle24;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::Color::DodgerBlue;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewMovie->DefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridViewMovie->GridColor = System::Drawing::Color::DodgerBlue;
 			this->dataGridViewMovie->Location = System::Drawing::Point(0, 0);
 			this->dataGridViewMovie->Margin = System::Windows::Forms::Padding(0);
